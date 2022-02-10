@@ -3,8 +3,8 @@
     <xacro:include filename="$(find rm_description)/urdf/common/omni_wheel.urdf.xacro"/>
 
     <!-- https://upload.wikimedia.org/wikipedia/commons/5/52/Wheelbase_and_Track.png -->
-    <xacro:property name="chassis_radius" value="0.208"/>
-    <xacro:property name="wheel_offset_z" value="0.0"/>
+    <xacro:property name="chassis_radius" value="0.196"/>
+    <xacro:property name="wheel_offset_z" value="-0.04373"/>
 
     <xacro:macro name="chassis">
 
