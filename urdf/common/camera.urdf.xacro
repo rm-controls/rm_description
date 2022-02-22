@@ -35,7 +35,13 @@
             <parent link="${parent}"/>
             <child link="${frame_id}"/>
         </joint>
-        <link name="${frame_id}"/>
+        <link name="${frame_id}">
+            <inertial>
+                <mass value="0.001"/>
+                <origin xyz="0.0 0.0 0.0"/>
+                <inertia ixx="2.129e-9" ixy="7.329e-9" ixz="-1.11e-9" iyy="2.198e-9" iyz="-8.04e-9" izz="2.197e-9"/>
+            </inertial>
+        </link>
 
         <xacro:if value="${camera_sim}">
             <gazebo reference="camera_link">
