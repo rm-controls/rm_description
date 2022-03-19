@@ -6,26 +6,28 @@
     <xacro:arg name="load_shooter" default="true"/>
     <xacro:arg name="camera_link" default="camera_link"/>
     <xacro:arg name="camera_optical_frame" default="camera_optical_frame"/>
+    <xacro:arg name="roller_type" default="simple"/>
     <xacro:arg name="use_simulation" default="true"/>
+    <xacro:arg name="roller_type" default="realistic"/>
 
     <xacro:if value="$(arg load_chassis)">
         <xacro:include filename="$(find rm_description)/urdf/standard/chassis.urdf.xacro"/>
-        <xacro:chassis/>
+        <xacro:chassis roller_type="$(arg roller_type)"/>
 
         <xacro:if value="$(arg load_gimbal)">
             <xacro:include filename="$(find rm_description)/urdf/standard/gimbal.urdf.xacro"/>
             <xacro:include filename="$(find rm_description)/urdf/standard3/gimbal.transmission.urdf.xacro"/>
             <xacro:include filename="$(find rm_description)/urdf/common/camera.urdf.xacro"/>
             <xacro:include filename="$(find rm_description)/urdf/common/imu.urdf.xacro"/>
-            <xacro:camera_sensor xyz="0.01 0.05 0.06" rpy="0 0 0" frame_id="$(arg camera_link)" parent="pitch"
+            <xacro:camera_sensor xyz="0 0 0.0887" rpy="0 0 0" frame_id="$(arg camera_link)" parent="pitch"
                                  camera_sim="$(arg use_simulation)"/>
-            <xacro:camera_optical_frame xyz="0.03630540 0.02695002 0.07130801" rpy="1.5997419 0.1162527 1.5697408"
+            <xacro:camera_optical_frame xyz="0 0 0.0887" rpy="1.57 0 1.57"
                                         frame_id="$(arg camera_optical_frame)"
                                         parent="pitch"
-                                        camera_sim="$(arg use_simulation)"/>
+                                        camera_sim="false"/>
             <xacro:IMU connected_to="$(arg camera_optical_frame)" imu_name="gimbal_imu"
-                       xyz="-0.05766461 -0.00498878 -0.02889381"
-                       rpy="1.44537832 0.01314763 0.09321356"/>
+                       xyz="0 -0.0255 -0.0348"
+                       rpy="1.57 0 0"/>
             <xacro:if value="$(arg load_shooter)">
                 <xacro:include filename="$(find rm_description)/urdf/standard/shooter.urdf.xacro"/>
                 <xacro:include filename="$(find rm_description)/urdf/standard3/shooter.transmission.urdf.xacro"/>
