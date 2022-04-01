@@ -28,7 +28,7 @@ Changelog for package rm_description
 * Update the hero description files
 * Modify the format error of hero urdf files
 * Merge pull request `#11 <https://github.com/rm-controls/rm_description/pull/11>`_ from Edwinlinks/-hero_urdf
-Contributors: Edwinlinks, QiayuanLiao, YuuinIH, qiayuan, yezi, mlione
+* Contributors: Edwinlinks, QiayuanLiao, YuuinIH, qiayuan, yezi, mlione
 
 0.1.8 (2021-12-7)
 ------------------
