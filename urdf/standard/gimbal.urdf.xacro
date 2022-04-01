@@ -38,10 +38,10 @@
 
     <link name="pitch">
         <inertial>
-            <mass value="0.652"/>
-            <origin xyz="0.033 0.000032 0.0384"/>
-            <inertia ixx="3.867378e-3" ixy="13867e-9" ixz="-395626e-9" iyy="8280849e-9"
-                     iyz="-36575e-9" izz="5849504e-9"/>
+            <mass value="0.644"/>
+            <origin xyz="0.029 0.000617 0.0376"/>
+            <inertia ixx="1.8216e-3" ixy="5.514e-6" ixz="1.58e-4" iyy="5.68e-3"
+                     iyz="-6.628e-6" izz="4.396e-3"/>
         </inertial>
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>

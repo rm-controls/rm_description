@@ -26,8 +26,8 @@
                                         parent="pitch"
                                         camera_sim="false"/>
             <xacro:IMU connected_to="$(arg camera_optical_frame)" imu_name="gimbal_imu"
-                       xyz="0 -0.0255 -0.0348"
-                       rpy="1.57 0 0"/>
+                       xyz="0.04139555 0.06043143 -0.09599202"
+                       rpy="1.5064926 -0.0371791 -3.1361393"/>
             <xacro:if value="$(arg load_shooter)">
                 <xacro:include filename="$(find rm_description)/urdf/standard/shooter.urdf.xacro"/>
                 <xacro:include filename="$(find rm_description)/urdf/standard3/shooter.transmission.urdf.xacro"/>
