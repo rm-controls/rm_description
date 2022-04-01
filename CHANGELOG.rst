@@ -2,6 +2,34 @@
 Changelog for package rm_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+0.1.9 (2022-04-01)
+------------------
+* Add omni wheel urdf
+* Complete omni wheel urdf
+* Add test launch file to check urdf
+* Rename launch file.Delete roller_type in urdf.Change args of hook
+* Merge pull request `#21 <https://github.com/rm-controls/rm_control/pull/21>`_ from ye-luo-xi-tui/omni_wheel
+* Fix errors of swerve urdf
+* Add CI/CD action
+* Create Doxyfile
+* Create .pre-commit-config.yaml
+* Add permissions to script
+* Delete pre_release.yml
+* Merge pull request `#3 <https://github.com/rm-controls/rm_description/pull/3>`_ from YuuinlH/-master
+* Merge pull request `#4 <https://github.com/rm-controls/rm_description/pull/4>`_ from YuuinlH/-master
+* Update deb_package.yml
+* Merge pull request `#5 <https://github.com/rm-controls/rm_description/pull/5>`_ from YuuinlH/-master
+* Update package.sh
+* Delete doxygen action(Uesless)
+* Add"none"type of omni_wheel roller.Set"none"for real robot
+* Fix error in check_joint.launch.Add rviz launch.
+* Merge pull request `#8 <https://github.com/rm-controls/rm_description/pull/8>`_ from ye-luo-xi-tui/-master
+* Add LICENSE file
+* Update the hero description files
+* Modify the format error of hero urdf files
+* Merge pull request `#11 <https://github.com/rm-controls/rm_description/pull/11>`_ from Edwinlinks/-hero_urdf
+* Contributors: Edwinlinks, QiayuanLiao, YuuinIH, qiayuan, yezi, mlione
+
 0.1.8 (2021-12-7)
 ------------------
 * Merge pull request `#19 <https://github.com/rm-controls/rm_control/issues/19>`_ from ye-luo-xi-tui/fix_rmua_bug
