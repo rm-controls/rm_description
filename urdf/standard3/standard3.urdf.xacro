@@ -21,13 +21,14 @@
             <xacro:include filename="$(find rm_description)/urdf/common/imu.urdf.xacro"/>
             <xacro:camera_sensor xyz="0 0 0.0887" rpy="0 0 0" frame_id="$(arg camera_link)" parent="pitch"
                                  camera_sim="$(arg use_simulation)"/>
-            <xacro:camera_optical_frame xyz="0 0 0.0887" rpy="1.57 0 1.57"
+            <xacro:camera_optical_frame xyz="0.05652213613351791 0.00334582754042001 0.08951459665737103"
+                                        rpy="-1.6276063 0.0179391 -1.5604531"
                                         frame_id="$(arg camera_optical_frame)"
                                         parent="pitch"
                                         camera_sim="false"/>
             <xacro:IMU connected_to="$(arg camera_optical_frame)" imu_name="gimbal_imu"
-                       xyz="0.04139555 0.06043143 -0.09599202"
-                       rpy="1.5064926 -0.0371791 -3.1361393"/>
+                       xyz="0 0.03 -0.1"
+                       rpy="1.575871 -0.0491724 3.1268903"/>
             <xacro:if value="$(arg load_shooter)">
                 <xacro:include filename="$(find rm_description)/urdf/standard/shooter.urdf.xacro"/>
                 <xacro:include filename="$(find rm_description)/urdf/standard3/shooter.transmission.urdf.xacro"/>
