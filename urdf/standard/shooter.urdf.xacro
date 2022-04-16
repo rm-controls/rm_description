@@ -55,23 +55,11 @@
             <origin xyz="-0.064 -0.000225 0.02447"/>
             <inertia ixx="5.40e-5" ixy="-1.30e-7" ixz="5.13e-5" iyy="1.54e-4" iyz="4.7e-8" izz="1.688e-4"/>
         </inertial>
-        <visual>
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-            <geometry>
-                <mesh filename="package://rm_description/meshes/standard/cover.stl" scale="0.001 0.001 0.001"/>
-            </geometry>
-        </visual>
-        <collision>
-            <origin xyz="0.033 0.0 -0.0" rpy="0 0.0 0"/>
-            <geometry>
-                <mesh filename="package://rm_description/meshes/standard/cover.stl" scale="0.001 0.001 0.001"/>
-            </geometry>
-        </collision>
     </link>
 
     <joint name="cover_joint" type="revolute">
         <axis xyz="0 1 0"/>
-        <origin xyz="0.187014 0 0.113269"/>
+        <origin xyz="0.11 0.064 0.087"/>
         <limit effort="1.0" velocity="30" lower="0" upper="3.14"/>
         <dynamics damping="0.0" friction="0.1"/>
         <parent link="base_link"/>
