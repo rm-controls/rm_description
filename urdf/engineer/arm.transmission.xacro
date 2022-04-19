@@ -22,24 +22,36 @@
         </transmission>
 
         <transmission name="trans_joint2">
-            <type>transmission_interface/SimpleTransmission</type>
-            <actuator name="joint2_motor">
-                <mechanicalReduction>3</mechanicalReduction>
+            <type>transmission_interface/MultiActuatorTransmission</type>
+            <actuator name="joint2_motor_left">
+                <role>main</role>
+                <mechanicalReduction>19.2032</mechanicalReduction>
+            </actuator>
+            <actuator name="joint2_motor_right">
+                <role>joint1_motor_right</role>
+                <mechanicalReduction>-19.2032</mechanicalReduction>
             </actuator>
             <joint name="joint2">
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-                <offset>-0.85</offset>
+                <offset>0</offset>
+                <mechanicalReduction>-21.1677852</mechanicalReduction>
             </joint>
         </transmission>
 
         <transmission name="trans_joint3">
-            <type>transmission_interface/SimpleTransmission</type>
-            <actuator name="joint3_motor">
-                <mechanicalReduction>3</mechanicalReduction>
+            <type>transmission_interface/MultiActuatorTransmission</type>
+            <actuator name="joint3_motor_left">
+                <role>main</role>
+                <mechanicalReduction>19.2032</mechanicalReduction>
+            </actuator>
+            <actuator name="joint3_motor_right">
+                <role>joint1_motor_right</role>
+                <mechanicalReduction>-19.2032</mechanicalReduction>
             </actuator>
             <joint name="joint3">
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-                <offset>-0.85</offset>
+                <offset>0</offset>
+                <mechanicalReduction>-21.1677852</mechanicalReduction>
             </joint>
         </transmission>
 
@@ -50,7 +62,7 @@
             </actuator>
             <joint name="joint4">
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-                <offset>-0.334978036</offset>
+                <offset>0</offset>
             </joint>
         </transmission>
 
@@ -61,7 +73,7 @@
             </actuator>
             <joint name="joint5">
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-                <offset>1.4378487</offset>
+                <offset>0.</offset>
             </joint>
         </transmission>
 
@@ -72,7 +84,7 @@
             </actuator>
             <joint name="joint6">
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-                <offset>1.4378487</offset>
+                <offset>0.</offset>
             </joint>
         </transmission>
 
@@ -83,7 +95,7 @@
             </actuator>
             <joint name="joint7">
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-                <offset>1.4378487</offset>
+                <offset>0.</offset>
             </joint>
         </transmission>
     </xacro:macro>
