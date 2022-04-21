@@ -11,12 +11,12 @@
         <xacro:property name="joint3_upper_limit" value="0.22"/>
         <xacro:property name="joint4_lower_limit" value="-0.176"/>
         <xacro:property name="joint4_upper_limit" value="0.176"/>
-        <xacro:property name="joint5_lower_limit" value="-3.132"/>
-        <xacro:property name="joint5_upper_limit" value="0.5916"/>
-        <xacro:property name="joint6_lower_limit" value="-4.785"/>
-        <xacro:property name="joint6_upper_limit" value="0.435"/>
-        <xacro:property name="joint7_lower_limit" value="-3.132"/>
-        <xacro:property name="joint7_upper_limit" value="3.132"/>
+        <xacro:property name="joint5_lower_limit" value="-3.141"/>
+        <xacro:property name="joint5_upper_limit" value="0."/>
+        <xacro:property name="joint6_lower_limit" value="-4.176"/>
+        <xacro:property name="joint6_upper_limit" value="0.783"/>
+        <xacro:property name="joint7_lower_limit" value="-3.915"/>
+        <xacro:property name="joint7_upper_limit" value="0.783"/>
 
         <!--  link  -->
         <link name="link1">
