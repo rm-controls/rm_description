@@ -5,18 +5,18 @@
         <xacro:property name="threshold" value="0.1"/>
         <xacro:property name="joint1_lower_limit" value="0"/>
         <xacro:property name="joint1_upper_limit" value="0.3"/>
-        <xacro:property name="joint2_lower_limit" value="-0.415"/>
-        <xacro:property name="joint2_upper_limit" value="0.42"/>
-        <xacro:property name="joint3_lower_limit" value="-0.22"/>
-        <xacro:property name="joint3_upper_limit" value="0.22"/>
-        <xacro:property name="joint4_lower_limit" value="-0.176"/>
-        <xacro:property name="joint4_upper_limit" value="0.176"/>
-        <xacro:property name="joint5_lower_limit" value="-3.141"/>
-        <xacro:property name="joint5_upper_limit" value="0."/>
-        <xacro:property name="joint6_lower_limit" value="-4.176"/>
-        <xacro:property name="joint6_upper_limit" value="0.783"/>
-        <xacro:property name="joint7_lower_limit" value="-3.915"/>
-        <xacro:property name="joint7_upper_limit" value="0.783"/>
+        <xacro:property name="joint2_lower_limit" value="-0.253350256769"/>
+        <xacro:property name="joint2_upper_limit" value="0.385167154"/>
+        <xacro:property name="joint3_lower_limit" value="-0.229388728029366"/>
+        <xacro:property name="joint3_upper_limit" value="0.281850996668"/>
+        <xacro:property name="joint4_lower_limit" value="-0.40983099899072"/>
+        <xacro:property name="joint4_upper_limit" value="0.43667063"/>
+        <xacro:property name="joint5_lower_limit" value="-3.42203741234"/>
+        <xacro:property name="joint5_upper_limit" value="0.047983045788"/>
+        <xacro:property name="joint6_lower_limit" value="-4.327149605070"/>
+        <xacro:property name="joint6_upper_limit" value="0.593107173715"/>
+        <xacro:property name="joint7_lower_limit" value="-1.507979833"/>
+        <xacro:property name="joint7_upper_limit" value="4.03879746213"/>
 
         <!--  link  -->
         <link name="link1">
@@ -117,7 +117,8 @@
             <inertial>
                 <mass value="0.95156"/>
                 <origin xyz="-0.001706 -0.000534 0.016649"/>
-                <inertia ixx="1.271e-2" ixy="3.344217e-6" ixz="2.5531018e-5" iyy="8.153e-4" iyz="-3.333465e-6" izz="1.244e-2"/>
+                <inertia ixx="1.271e-2" ixy="3.344217e-6" ixz="2.5531018e-5" iyy="8.153e-4" iyz="-3.333465e-6"
+                         izz="1.244e-2"/>
             </inertial>
             <visual>
                 <geometry>
@@ -143,7 +144,8 @@
             <inertial>
                 <mass value="0.739277"/>
                 <origin xyz="0.000853 -0.001219 0.003256"/>
-                <inertia ixx="9.950e-3" ixy="-1.181569e-6" ixz="1.1018936e-5" iyy="3.150e-4" iyz="3.7875649e-5" izz="9.892e-3"/>
+                <inertia ixx="9.950e-3" ixy="-1.181569e-6" ixz="1.1018936e-5" iyy="3.150e-4" iyz="3.7875649e-5"
+                         izz="9.892e-3"/>
             </inertial>
             <visual>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -169,7 +171,8 @@
             <inertial>
                 <mass value="0.597915"/>
                 <origin xyz="0.0033 -0.051861 0.000004"/>
-                <inertia ixx="3.027e-3" ixy="-6.403167e-6" ixz="2.37196e-7" iyy="2.774e-4" iyz="-7.08963e-7" izz="3.084e-3"/>
+                <inertia ixx="3.027e-3" ixy="-6.403167e-6" ixz="2.37196e-7" iyy="2.774e-4" iyz="-7.08963e-7"
+                         izz="3.084e-3"/>
             </inertial>
             <visual>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -189,7 +192,8 @@
             <inertial>
                 <mass value="0.705206"/>
                 <origin xyz="-0.030997 0.000129 0.038143"/>
-                <inertia ixx="4.444e-3" ixy="8.7593e-7" ixz="4.924e-4" iyy="5.629e-3" iyz="-7.662224e-6" izz="1.390e-3"/>
+                <inertia ixx="4.444e-3" ixy="8.7593e-7" ixz="4.924e-4" iyy="5.629e-3" iyz="-7.662224e-6"
+                         izz="1.390e-3"/>
             </inertial>
             <visual>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -221,7 +225,8 @@
             <inertial>
                 <mass value="0.771338"/>
                 <origin xyz="0.04148 -0.000028 -0.028949"/>
-                <inertia ixx="2.206e-3" ixy="-3.0455e-8" ixz="-1.041e-4" iyy="4.988e-3" iyz="-4.58505e-7" izz="3.998e-3"/>
+                <inertia ixx="2.206e-3" ixy="-3.0455e-8" ixz="-1.041e-4" iyy="4.988e-3" iyz="-4.58505e-7"
+                         izz="3.998e-3"/>
             </inertial>
             <visual>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -254,7 +259,8 @@
             <child link="link1"/>
             <origin xyz="0 0 0.1375" rpy="0 0 0"/>
             <axis xyz="0 0 1"/>
-            <limit lower="${joint1_lower_limit}" upper="${joint1_upper_limit}" velocity="0.1" effort="3000"/>
+            <limit lower="${joint1_lower_limit}" upper="${joint1_upper_limit}" velocity="100"
+                   effort="10"/>
         </joint>
 
         <joint name="joint2" type="prismatic">
@@ -262,7 +268,8 @@
             <child link="link2_1"/>
             <origin xyz="0. 0. 0.098707" rpy="0 0 0"/>
             <axis xyz="1 0 0"/>
-            <limit lower="${joint2_lower_limit}" upper="${joint2_upper_limit}" velocity="0.1" effort="300"/>
+            <limit lower="${joint2_lower_limit}" upper="${joint2_upper_limit}" velocity="100"
+                   effort="10"/>
         </joint>
 
         <joint name="joint3" type="prismatic">
@@ -270,7 +277,7 @@
             <child link="link2_2"/>
             <origin xyz="0.022 0. 0.034" rpy="0 0 0"/>
             <axis xyz="1 0 0"/>
-            <limit lower="${joint3_lower_limit}" upper="${joint3_upper_limit}" velocity="0.1" effort="300"/>
+            <limit lower="${joint3_lower_limit}" upper="${joint3_upper_limit}" velocity="100" effort="10"/>
         </joint>
 
         <joint name="joint4" type="prismatic">
@@ -278,7 +285,8 @@
             <child link="link3"/>
             <origin xyz="0. 0. 0.068" rpy="0 0 0"/>
             <axis xyz="0 1 0"/>
-            <limit lower="${joint4_lower_limit}" upper="${joint4_upper_limit}" velocity="0.1" effort="300"/>
+            <limit lower="${joint4_lower_limit}" upper="${joint4_upper_limit}" velocity="100"
+                   effort="10"/>
         </joint>
 
         <joint name="joint5" type="revolute">
@@ -286,7 +294,8 @@
             <child link="link4"/>
             <origin xyz="0. 0. 0.069" rpy="0 0 0"/>
             <axis xyz="0 1 0"/>
-            <limit lower="${joint5_lower_limit}" upper="${joint5_upper_limit}" velocity="0.1" effort="300"/>
+            <limit lower="${joint5_lower_limit}" upper="${joint5_upper_limit}" velocity="100"
+                   effort="10"/>
         </joint>
 
         <joint name="joint6" type="revolute">
@@ -294,7 +303,8 @@
             <child link="link5"/>
             <origin xyz="0.06925 0. 0" rpy="0 0 0"/>
             <axis xyz="1 0 0"/>
-            <limit lower="${joint6_lower_limit}" upper="${joint6_upper_limit}" velocity="0.1" effort="300"/>
+            <limit lower="${joint6_lower_limit}" upper="${joint6_upper_limit}" velocity="100"
+                   effort="10"/>
         </joint>
 
         <joint name="joint7" type="revolute">
@@ -302,7 +312,8 @@
             <child link="link6"/>
             <origin xyz="-0.06925 0 0.255" rpy="0 0 0"/>
             <axis xyz="0 0 1"/>
-            <limit lower="${joint7_lower_limit}" upper="${joint7_upper_limit}" velocity="0.1" effort="300"/>
+            <limit lower="${joint7_lower_limit}" upper="${joint7_upper_limit}" velocity="100"
+                   effort="10"/>
         </joint>
     </xacro:macro>
 </robot>
