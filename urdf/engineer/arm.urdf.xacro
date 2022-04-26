@@ -3,20 +3,20 @@
 
     <xacro:macro name="arm" params="connected_to">
         <xacro:property name="threshold" value="0.1"/>
-        <xacro:property name="joint1_lower_limit" value="0"/>
-        <xacro:property name="joint1_upper_limit" value="0.3"/>
-        <xacro:property name="joint2_lower_limit" value="-0.253350256769"/>
-        <xacro:property name="joint2_upper_limit" value="0.385167154"/>
-        <xacro:property name="joint3_lower_limit" value="-0.229388728029366"/>
-        <xacro:property name="joint3_upper_limit" value="0.281850996668"/>
-        <xacro:property name="joint4_lower_limit" value="-0.40983099899072"/>
-        <xacro:property name="joint4_upper_limit" value="0.43667063"/>
-        <xacro:property name="joint5_lower_limit" value="-3.42203741234"/>
-        <xacro:property name="joint5_upper_limit" value="0.047983045788"/>
-        <xacro:property name="joint6_lower_limit" value="-4.327149605070"/>
-        <xacro:property name="joint6_upper_limit" value="0.593107173715"/>
-        <xacro:property name="joint7_lower_limit" value="-1.507979833"/>
-        <xacro:property name="joint7_upper_limit" value="4.03879746213"/>
+        <xacro:property name="joint1_lower_limit" value="0.0045"/>
+        <xacro:property name="joint1_upper_limit" value="0.6274"/>
+        <xacro:property name="joint2_upper_limit" value="0.34363"/>
+        <xacro:property name="joint2_lower_limit" value="-0.2124"/>
+        <xacro:property name="joint3_upper_limit" value="0.2360"/>
+        <xacro:property name="joint3_lower_limit" value="-0.2219"/>
+        <xacro:property name="joint4_upper_limit" value="0.34125"/>
+        <xacro:property name="joint4_lower_limit" value="-0.295"/>
+        <xacro:property name="joint5_upper_limit" value="0"/>
+        <xacro:property name="joint5_lower_limit" value="-3.2301"/>
+        <xacro:property name="joint6_upper_limit" value="0.8005"/>
+        <xacro:property name="joint6_lower_limit" value="-4.2"/>
+        <xacro:property name="joint7_upper_limit" value="3.99"/>
+        <xacro:property name="joint7_lower_limit" value="-1.26"/>
 
         <!--  link  -->
         <link name="link1">
@@ -259,8 +259,7 @@
             <child link="link1"/>
             <origin xyz="0 0 0.1375" rpy="0 0 0"/>
             <axis xyz="0 0 1"/>
-            <limit lower="${joint1_lower_limit}" upper="${joint1_upper_limit}" velocity="100"
-                   effort="10"/>
+            <limit lower="${joint1_lower_limit}" upper="${joint1_upper_limit}" velocity="200" effort="20"/>
         </joint>
 
         <joint name="joint2" type="prismatic">
@@ -268,8 +267,7 @@
             <child link="link2_1"/>
             <origin xyz="0. 0. 0.098707" rpy="0 0 0"/>
             <axis xyz="1 0 0"/>
-            <limit lower="${joint2_lower_limit}" upper="${joint2_upper_limit}" velocity="100"
-                   effort="10"/>
+            <limit lower="${joint2_lower_limit}" upper="${joint2_upper_limit}" velocity="200" effort="20"/>
         </joint>
 
         <joint name="joint3" type="prismatic">
@@ -277,7 +275,7 @@
             <child link="link2_2"/>
             <origin xyz="0.022 0. 0.034" rpy="0 0 0"/>
             <axis xyz="1 0 0"/>
-            <limit lower="${joint3_lower_limit}" upper="${joint3_upper_limit}" velocity="100" effort="10"/>
+            <limit lower="${joint3_lower_limit}" upper="${joint3_upper_limit}" velocity="200" effort="20"/>
         </joint>
 
         <joint name="joint4" type="prismatic">
@@ -285,8 +283,7 @@
             <child link="link3"/>
             <origin xyz="0. 0. 0.068" rpy="0 0 0"/>
             <axis xyz="0 1 0"/>
-            <limit lower="${joint4_lower_limit}" upper="${joint4_upper_limit}" velocity="100"
-                   effort="10"/>
+            <limit lower="${joint4_lower_limit}" upper="${joint4_upper_limit}" velocity="200" effort="20"/>
         </joint>
 
         <joint name="joint5" type="revolute">
@@ -294,8 +291,7 @@
             <child link="link4"/>
             <origin xyz="0. 0. 0.069" rpy="0 0 0"/>
             <axis xyz="0 1 0"/>
-            <limit lower="${joint5_lower_limit}" upper="${joint5_upper_limit}" velocity="100"
-                   effort="10"/>
+            <limit lower="${joint5_lower_limit}" upper="${joint5_upper_limit}" velocity="200" effort="20"/>
         </joint>
 
         <joint name="joint6" type="revolute">
@@ -303,8 +299,7 @@
             <child link="link5"/>
             <origin xyz="0.06925 0. 0" rpy="0 0 0"/>
             <axis xyz="1 0 0"/>
-            <limit lower="${joint6_lower_limit}" upper="${joint6_upper_limit}" velocity="100"
-                   effort="10"/>
+            <limit lower="${joint6_lower_limit}" upper="${joint6_upper_limit}" velocity="200" effort="20"/>
         </joint>
 
         <joint name="joint7" type="revolute">
@@ -312,8 +307,7 @@
             <child link="link6"/>
             <origin xyz="-0.06925 0 0.255" rpy="0 0 0"/>
             <axis xyz="0 0 1"/>
-            <limit lower="${joint7_lower_limit}" upper="${joint7_upper_limit}" velocity="100"
-                   effort="10"/>
+            <limit lower="${joint7_lower_limit}" upper="${joint7_upper_limit}" velocity="200" effort="20"/>
         </joint>
     </xacro:macro>
 </robot>
