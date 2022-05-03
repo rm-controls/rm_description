@@ -61,8 +61,8 @@
         </joint>
 
         <gazebo reference="${prefix}_wheel">
-            <mu1 value="20"/>
-            <mu2 value="20"/>
+            <mu1 value="1.0"/>
+            <mu2 value="1.0"/>
             <kp value="1000000.0"/>
             <kd value="100.0"/>
             <material>Gazebo/Black</material>
@@ -82,15 +82,15 @@
             </joint>
         </transmission>
 
-        <!--        <transmission name="${prefix}_wheel_trans">-->
-        <!--            <type>transmission_interface/SimpleTransmission</type>-->
-        <!--            <actuator name="${prefix}_wheel_motor">-->
-        <!--                <mechanicalReduction>${wheel_reduction}</mechanicalReduction>-->
-        <!--            </actuator>-->
-        <!--            <joint name="${prefix}_wheel_joint">-->
-        <!--                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>-->
-        <!--            </joint>-->
-        <!--        </transmission>-->
+        <transmission name="${prefix}_wheel_trans">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="${prefix}_wheel_motor">
+                <mechanicalReduction>${wheel_reduction}</mechanicalReduction>
+            </actuator>
+            <joint name="${prefix}_wheel_joint">
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
     </xacro:macro>
 
 </robot>
