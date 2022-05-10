@@ -1,41 +1,53 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:include filename="$(find rm_description)/urdf/balance/rubber_wheel.urdf.xacro"/>
+    <xacro:include filename="$(find rm_description)/urdf/balance/reaction_wheel.urdf.xacro"/>
+    <xacro:include filename="$(find rm_description)/urdf/common/swerve_drive.urdf.xacro"/>
 
     <!-- https://upload.wikimedia.org/wikipedia/commons/5/52/Wheelbase_and_Track.png -->
-    <xacro:property name="wheel_base" value="0.405"/>
-    <xacro:property name="wheel_z_offset" value="0"/>
+    <xacro:property name="wheel_base" value="0.328"/>
+    <xacro:property name="pivot_offset_z" value="0.12135"/>
 
     <xacro:macro name="chassis">
 
         <link name="base_link">
             <inertial>
-                <mass value="4.595"/>
-                <origin xyz="-0.000190 -0.000075 0.110987"/>
-                <inertia ixx="0.126" ixy="-1.806e-6" ixz="1.142e-4" iyy="5.337e-2"
-                         iyz="1.133e-4" izz="8.685e-2"/>
+                <mass value="6.453809"/>
+                <origin xyz="-0.013181 0.000104 0.1638"/>
+                <inertia ixx="9.725e-2" ixy="4.574e-5" ixz="7.354e-3" iyy="9.525e-2"
+                         iyz="1.021e-5" izz="1.468e-1"/>
             </inertial>
             <visual>
-                <origin xyz="0 0 0.085" rpy="0 0 0"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
                 <geometry>
-                    <mesh filename="package://rm_description/meshes/balance/base.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://rm_description/meshes/balance/base_link.stl"
+                          scale="0.001 .001 0.001"/>
                 </geometry>
             </visual>
             <collision>
-                <origin xyz="0 0 0.018" rpy="0 0 0"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
                 <geometry>
-                    <!--                    <mesh filename="package://rm_description/meshes/balance/base.stl" scale="0.001 0.001 0.001"/>-->
-                    <box size="0.35 0.22 0.03"/>
+                    <mesh filename="package://rm_description/meshes/balance/base_link.stl"
+                          scale="0.001 0.001 0.001"/>
                 </geometry>
             </collision>
         </link>
 
-        <xacro:rubber_wheel prefix="left" connected_to="base_link"
-                            wheel_x_offset="0" wheel_y_offset="${wheel_base/2}"
-                            wheel_z_offset="${wheel_z_offset}" mechanical_reduction="-0.166"/>
-        <xacro:rubber_wheel prefix="right" connected_to="base_link"
-                            wheel_x_offset="0" wheel_y_offset="${-wheel_base/2}"
-                            wheel_z_offset="${wheel_z_offset}" mechanical_reduction="0.166"/>
+
+        <xacro:reaction_wheel connected_to="base_link"
+                              wheel_x_offset="0" wheel_y_offset="0"
+                              wheel_z_offset="0.22" mechanical_reduction="-0.166"/>
+
+        <xacro:swerve_drive prefix="left" connected_to="base_link"
+                            x_offset="0" y_offset="${wheel_base/2}"
+                            z_offset="${pivot_offset_z}"/>
+
+        <xacro:swerve_drive prefix="right" connected_to="base_link"
+                            x_offset="0" y_offset="${-wheel_base/2}"
+                            z_offset="${pivot_offset_z}"/>
+
+        <xacro:swerve_transmission prefix="left" wheel_reduction="13.733" pivot_offset="0"/>
+        <xacro:swerve_transmission prefix="right" wheel_reduction="-13.733" pivot_offset="1.861"/>
+
 
     </xacro:macro>
 
