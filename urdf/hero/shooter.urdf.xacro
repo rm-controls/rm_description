@@ -38,10 +38,10 @@
         </collision>
     </link>
 
-    <joint name="trigger_joint" type="continuous">
+    <joint name="trigger_joint" type="revolute">
         <origin xyz="0 0 0.063" rpy="0 0 0"/>
         <dynamics damping="0.0" friction="0.01"/>
-        <limit effort="6.99" velocity="35.758" lower="-1e16" upper="1e16"/>
+        <limit effort="12" velocity="12.5" lower="-1e16" upper="1e16"/>
         <parent link="base_link"/>
         <child link="trigger"/>
         <axis xyz="0 0 1 "/>
