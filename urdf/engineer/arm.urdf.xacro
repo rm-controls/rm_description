@@ -378,7 +378,7 @@
             <limit lower="${joint5_lower_limit}" upper="${joint5_upper_limit}" velocity="10" effort="200"/>
         </joint>
 
-        <joint name="joint6" type="revolute">50.895
+        <joint name="joint6" type="revolute">
             <parent link="link4"/>
             <child link="link5"/>
             <origin xyz="0.06925 0. 0" rpy="0 0 0"/>
@@ -386,7 +386,7 @@
             <limit lower="${joint6_lower_limit}" upper="${joint6_upper_limit}" velocity="10" effort="200"/>
         </joint>
 
-        <joint name="joint7" type="revolute">19.2032
+        <joint name="joint7" type="revolute">
             <parent link="link5"/>
             <child link="link6"/>
             <origin xyz="-0.06925 0 0.255" rpy="0 0 0"/>
