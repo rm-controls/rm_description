@@ -3,16 +3,15 @@
     <xacro:arg name="load_chassis" default="true"/>
     <xacro:arg name="load_arm" default="true"/>
     <xacro:arg name="use_simulation" default="true"/>
-    <xacro:arg name="roller_type" default="simple"/>
 
     <xacro:if value="$(arg load_chassis)">
         <xacro:include filename="$(find rm_description)/urdf/engineer/chassis.urdf.xacro"/>
-        <xacro:chassis roller_type="$(arg roller_type)"/>
+        <xacro:chassis/>
     </xacro:if>
 
     <xacro:if value="$(arg load_arm)">
         <xacro:include filename="$(find rm_description)/urdf/engineer/arm.urdf.xacro"/>
-        <xacro:arm connected_to="base_link"/>
+        <xacro:arm connected_to="base_link" simulation="$(arg use_simulation)"/>
         <xacro:include filename="$(find rm_description)/urdf/engineer/arm.transmission.xacro"/>
         <xacro:arm_transmission simulation="$(arg use_simulation)"/>
     </xacro:if>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="arm">
 
-    <xacro:macro name="arm" params="connected_to">
+    <xacro:macro name="arm" params="connected_to simulation">
         <xacro:property name="threshold" value="0.1"/>
         <xacro:property name="joint1_lower_limit" value="0.0005736069829"/>
         <xacro:property name="joint1_upper_limit" value="0.6351414275302"/>
@@ -75,26 +75,6 @@
             </collision>
         </link>
 
-        <link name="link1_mime">
-            <inertial>
-                <mass value="0.1"/>
-                <origin xyz="0. 0. 0."/>
-                <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
-            </inertial>
-            <visual>
-                <origin xyz="0. 0.237 -0.0175" rpy="0 0 0"/>
-                <geometry>
-                    <box size="0.01 0.01 0.1"/>
-                </geometry>
-            </visual>
-            <collision>
-                <origin xyz="0. 0 0." rpy="0 0 0"/>
-                <geometry>
-                    <box size="0. 0. 0."/>
-                </geometry>
-            </collision>
-        </link>
-
         <link name="link2_1">
             <inertial>
                 <mass value="4.534716"/>
@@ -133,26 +113,6 @@
             </collision>
         </link>
 
-        <link name="link2_1_mime">
-            <inertial>
-                <mass value="0.1"/>
-                <origin xyz="0. 0. 0."/>
-                <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
-            </inertial>
-            <visual>
-                <origin xyz="-0.283 0.134 0.003" rpy="0 0 0"/>
-                <geometry>
-                    <box size="0.1 0.01 0.01"/>
-                </geometry>
-            </visual>
-            <collision>
-                <origin xyz="0. 0 0." rpy="0 0 0"/>
-                <geometry>
-                    <box size="0. 0. 0."/>
-                </geometry>
-            </collision>
-        </link>
-
         <link name="link2_2">
             <inertial>
                 <mass value="0.95156"/>
@@ -176,26 +136,6 @@
                 <origin xyz="0.015 0 0.044" rpy="0 0 0"/>
                 <geometry>
                     <box size="0.082 0.122 0.054"/>
-                </geometry>
-            </collision>
-        </link>
-
-        <link name="link2_2_mime">
-            <inertial>
-                <mass value="0.1"/>
-                <origin xyz="0. 0. 0."/>
-                <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
-            </inertial>
-            <visual>
-                <origin xyz="-0.001 0 0.0015" rpy="0 0 0"/>
-                <geometry>
-                    <box size="0.1 0.01 0.01"/>
-                </geometry>
-            </visual>
-            <collision>
-                <origin xyz="0. 0 0." rpy="0 0 0"/>
-                <geometry>
-                    <box size="0. 0. 0."/>
                 </geometry>
             </collision>
         </link>
@@ -322,13 +262,6 @@
             <limit lower="${joint1_lower_limit}" upper="${joint1_upper_limit}" velocity="1" effort="200"/>
         </joint>
 
-        <joint name="joint1_mime" type="prismatic">
-            <parent link="${connected_to}"/>
-            <child link="link1_mime"/>z
-            <origin xyz="0 0 0.1375" rpy="0 0 0"/>
-            <axis xyz="0 0 1"/>
-            <limit lower="${joint1_lower_limit}" upper="${joint1_upper_limit}" velocity="1" effort="200"/>
-        </joint>
 
         <joint name="joint2" type="prismatic">
             <parent link="link1"/>
@@ -338,25 +271,9 @@
             <limit lower="${joint2_lower_limit}" upper="${joint2_upper_limit}" velocity="1" effort="200"/>
         </joint>
 
-        <joint name="joint2_mime" type="prismatic">
-            <parent link="link1"/>
-            <child link="link2_1_mime"/>
-            <origin xyz="0. 0. 0.098707" rpy="0 0 0"/>
-            <axis xyz="1 0 0"/>
-            <limit lower="${joint2_lower_limit}" upper="${joint2_upper_limit}" velocity="1" effort="200"/>
-        </joint>
-
         <joint name="joint3" type="prismatic">
             <parent link="link2_1"/>
             <child link="link2_2"/>
-            <origin xyz="0.022 0. 0.034" rpy="0 0 0"/>
-            <axis xyz="1 0 0"/>
-            <limit lower="${joint3_lower_limit}" upper="${joint3_upper_limit}" velocity="1" effort="200"/>
-        </joint>
-
-        <joint name="joint3_mime" type="prismatic">
-            <parent link="link2_1"/>
-            <child link="link2_2_mime"/>
             <origin xyz="0.022 0. 0.034" rpy="0 0 0"/>
             <axis xyz="1 0 0"/>
             <limit lower="${joint3_lower_limit}" upper="${joint3_upper_limit}" velocity="1" effort="200"/>
@@ -393,5 +310,91 @@
             <axis xyz="0 0 1"/>
             <limit lower="${joint7_lower_limit}" upper="${joint7_upper_limit}" velocity="10" effort="200"/>
         </joint>
+
+        <xacro:unless value="${simulation}">
+            <link name="link1_mime">
+                <inertial>
+                    <mass value="0.1"/>
+                    <origin xyz="0. 0. 0."/>
+                    <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+                </inertial>
+                <visual>
+                    <origin xyz="0. 0.237 -0.0175" rpy="0 0 0"/>
+                    <geometry>
+                        <box size="0.01 0.01 0.1"/>
+                    </geometry>
+                </visual>
+                <collision>
+                    <origin xyz="0. 0 0." rpy="0 0 0"/>
+                    <geometry>
+                        <box size="0. 0. 0."/>
+                    </geometry>
+                </collision>
+            </link>
+
+            <link name="link2_1_mime">
+                <inertial>
+                    <mass value="0.1"/>
+                    <origin xyz="0. 0. 0."/>
+                    <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+                </inertial>
+                <visual>
+                    <origin xyz="-0.283 0.134 0.003" rpy="0 0 0"/>
+                    <geometry>
+                        <box size="0.1 0.01 0.01"/>
+                    </geometry>
+                </visual>
+                <collision>
+                    <origin xyz="0. 0 0." rpy="0 0 0"/>
+                    <geometry>
+                        <box size="0. 0. 0."/>
+                    </geometry>
+                </collision>
+            </link>
+
+            <link name="link2_2_mime">
+                <inertial>
+                    <mass value="0.1"/>
+                    <origin xyz="0. 0. 0."/>
+                    <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+                </inertial>
+                <visual>
+                    <origin xyz="-0.001 0 0.0015" rpy="0 0 0"/>
+                    <geometry>
+                        <box size="0.1 0.01 0.01"/>
+                    </geometry>
+                </visual>
+                <collision>
+                    <origin xyz="0. 0 0." rpy="0 0 0"/>
+                    <geometry>
+                        <box size="0. 0. 0."/>
+                    </geometry>
+                </collision>
+            </link>
+
+            <joint name="joint1_mime" type="prismatic">
+                <parent link="${connected_to}"/>
+                <child link="link1_mime"/>z
+                <origin xyz="0 0 0.1375" rpy="0 0 0"/>
+                <axis xyz="0 0 1"/>
+                <limit lower="${joint1_lower_limit}" upper="${joint1_upper_limit}" velocity="1" effort="200"/>
+            </joint>
+
+            <joint name="joint2_mime" type="prismatic">
+                <parent link="link1"/>
+                <child link="link2_1_mime"/>
+                <origin xyz="0. 0. 0.098707" rpy="0 0 0"/>
+                <axis xyz="1 0 0"/>
+                <limit lower="${joint2_lower_limit}" upper="${joint2_upper_limit}" velocity="1" effort="200"/>
+            </joint>
+
+            <joint name="joint3_mime" type="prismatic">
+                <parent link="link2_1"/>
+                <child link="link2_2_mime"/>
+                <origin xyz="0.022 0. 0.034" rpy="0 0 0"/>
+                <axis xyz="1 0 0"/>
+                <limit lower="${joint3_lower_limit}" upper="${joint3_upper_limit}" velocity="1" effort="200"/>
+            </joint>
+        </xacro:unless>
     </xacro:macro>
 </robot>

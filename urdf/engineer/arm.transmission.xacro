@@ -15,17 +15,6 @@
             </joint>
         </transmission>
 
-        <transmission name="trans_joint1_mime">
-            <type>transmission_interface/SimpleTransmission</type>
-            <actuator name="mime_joint1_motor">
-                <mechanicalReduction>-406.489213</mechanicalReduction>
-            </actuator>
-            <joint name="joint1_mime">
-                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-                <offset>0</offset>
-            </joint>
-        </transmission>
-
         <transmission name="trans_joint2">
             <type>transmission_interface/SimpleTransmission</type>
             <actuator name="joint2_motor">
@@ -37,34 +26,12 @@
             </joint>
         </transmission>
 
-        <transmission name="trans_joint2_mime">
-            <type>transmission_interface/SimpleTransmission</type>
-            <actuator name="mime_joint2_motor">
-                <mechanicalReduction>-476.977368</mechanicalReduction>
-            </actuator>
-            <joint name="joint2_mime">
-                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-                <offset>0</offset>
-            </joint>
-        </transmission>
-
         <transmission name="trans_joint3">
             <type>transmission_interface/SimpleTransmission</type>
             <actuator name="joint3_motor">
                 <mechanicalReduction>1036.0854</mechanicalReduction>
             </actuator>
             <joint name="joint3">
-                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-                <offset>0</offset>
-            </joint>
-        </transmission>
-
-        <transmission name="trans_joint3_mime">
-            <type>transmission_interface/SimpleTransmission</type>
-            <actuator name="mime_joint3_motor">
-                <mechanicalReduction>-1036.0854</mechanicalReduction>
-            </actuator>
-            <joint name="joint3_mime">
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
                 <offset>0</offset>
             </joint>
@@ -113,6 +80,41 @@
                 <offset>0</offset>
             </joint>
         </transmission>
+
+        <xacro:unless value="${simulation}">
+            <transmission name="trans_joint1_mime">
+                <type>transmission_interface/SimpleTransmission</type>
+                <actuator name="joint1_mime_motor">
+                    <mechanicalReduction>-406.489213</mechanicalReduction>
+                </actuator>
+                <joint name="joint1_mime">
+                    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+                    <offset>0</offset>
+                </joint>
+            </transmission>
+
+            <transmission name="trans_joint2_mime">
+                <type>transmission_interface/SimpleTransmission</type>
+                <actuator name="joint2_mime_motor">
+                    <mechanicalReduction>-476.977368</mechanicalReduction>
+                </actuator>
+                <joint name="joint2_mime">
+                    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+                    <offset>0</offset>
+                </joint>
+            </transmission>
+
+            <transmission name="trans_joint3_mime">
+                <type>transmission_interface/SimpleTransmission</type>
+                <actuator name="joint3_mime_motor">
+                    <mechanicalReduction>-1036.0854</mechanicalReduction>
+                </actuator>
+                <joint name="joint3_mime">
+                    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+                    <offset>0</offset>
+                </joint>
+            </transmission>
+        </xacro:unless>
     </xacro:macro>
 
 </robot>
