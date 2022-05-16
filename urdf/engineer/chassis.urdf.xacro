@@ -178,6 +178,14 @@
             </collision>
         </link>
 
+        <joint name="card_joint" type="revolute">
+            <parent link="base_link"/>
+            <child link="card"/>
+            <origin xyz="0. 0.175076 -0.008" rpy="0 0 0"/>
+            <axis xyz="1 0 0"/>
+            <limit lower="-1000000" upper="1000000" velocity="1" effort="200"/>
+        </joint>
+
         <joint name="drag_joint" type="revolute">
             <parent link="base_link"/>
             <child link="drag"/>
@@ -186,18 +194,10 @@
             <limit lower="-6.28" upper="6.28" velocity="1" effort="200"/>
         </joint>
 
-        <joint name="card_joint" type="revolute">
-            <parent link="base_link"/>
-            <child link="card"/>
-            <origin xyz="0. -0.175076 -0.008" rpy="0 0 0"/>
-            <axis xyz="1 0 0"/>
-            <limit lower="-6.26" upper="6.28" velocity="1" effort="200"/>
-        </joint>
-
         <transmission name="trans_card_joint">
             <type>transmission_interface/SimpleTransmission</type>
             <actuator name="card_joint_motor">
-                <mechanicalReduction>1</mechanicalReduction>
+                <mechanicalReduction>50.895</mechanicalReduction>
             </actuator>
             <joint name="card_joint">
                 <offset>0</offset>
