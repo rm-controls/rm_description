@@ -82,34 +82,34 @@
         </transmission>
 
         <xacro:unless value="${simulation}">
-            <transmission name="trans_joint1_mime">
+            <transmission name="trans_mimic_joint1">
                 <type>transmission_interface/SimpleTransmission</type>
-                <actuator name="joint1_mime_motor">
+                <actuator name="mimic_joint1_motor">
                     <mechanicalReduction>-406.489213</mechanicalReduction>
                 </actuator>
-                <joint name="joint1_mime">
+                <joint name="mimic_joint1">
                     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
                     <offset>0</offset>
                 </joint>
             </transmission>
 
-            <transmission name="trans_joint2_mime">
+            <transmission name="trans_mimic_joint2">
                 <type>transmission_interface/SimpleTransmission</type>
-                <actuator name="joint2_mime_motor">
+                <actuator name="mimic_joint2_motor">
                     <mechanicalReduction>-476.977368</mechanicalReduction>
                 </actuator>
-                <joint name="joint2_mime">
+                <joint name="mimic_joint2">
                     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
                     <offset>0</offset>
                 </joint>
             </transmission>
 
-            <transmission name="trans_joint3_mime">
+            <transmission name="trans_mimic_joint3">
                 <type>transmission_interface/SimpleTransmission</type>
-                <actuator name="joint3_mime_motor">
+                <actuator name="mimic_joint3_motor">
                     <mechanicalReduction>-1036.0854</mechanicalReduction>
                 </actuator>
-                <joint name="joint3_mime">
+                <joint name="mimic_joint3">
                     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
                     <offset>0</offset>
                 </joint>
