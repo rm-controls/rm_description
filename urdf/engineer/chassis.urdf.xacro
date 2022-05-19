@@ -153,18 +153,6 @@
                 </geometry>
             </visual>
             <collision>
-                <origin xyz="0.035 -0.029 0.04765" rpy="0 0 0"/>
-                <geometry>
-                    <box size="0.025 0.0648 0.0247"/>
-                </geometry>
-            </collision>
-            <collision>
-                <origin xyz="0.035 -0.025 0.026" rpy="0 0 0"/>
-                <geometry>
-                    <box size="0.025 0.026 0.012"/>
-                </geometry>
-            </collision>
-            <collision>
                 <origin xyz="-0.041518 0.077 0.017" rpy="0 0 0"/>
                 <geometry>
                     <box size="0.112768 0.009 0.018"/>
