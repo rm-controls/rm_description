@@ -4,7 +4,7 @@
     <!-- https://upload.wikimedia.org/wikipedia/commons/5/52/Wheelbase_and_Track.png -->
     <xacro:property name="wheel_track" value="0.423"/>
     <xacro:property name="wheel_base" value="0.412"/>
-    <xacro:property name="wheel_offset_z" value="0.02795"/>
+    <xacro:property name="wheel_offset_z" value="0.06795"/>
 
     <xacro:macro name="chassis">
 
