@@ -4,10 +4,11 @@
     <transmission name="trans_trigger_joint">
         <type>transmission_interface/SimpleTransmission</type>
         <actuator name="trigger_joint_motor">
-            <mechanicalReduction>1</mechanicalReduction>
+            <mechanicalReduction>-2.5</mechanicalReduction>
         </actuator>
         <joint name="trigger_joint">
             <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <offset>0.2</offset>
         </joint>
     </transmission>
 
