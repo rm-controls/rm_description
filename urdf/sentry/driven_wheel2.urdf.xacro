@@ -13,10 +13,10 @@
                 </geometry>
             </visual>
             <inertial>
-                <mass value="1.527e-3"/>
+                <mass value="0.712e-3"/>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
-                <inertia ixx="29.25e-9" ixy="-3.862e-14" ixz="-0.001e-9" iyy="29.251e-9"
-                         iyz="-0.001e-9" izz="52.083e-9"/>
+                <inertia ixx="11.315e-9" ixy="0" ixz="0" iyy="11.315e-9"
+                         iyz="0" izz="19.664e-9"/>
             </inertial>
             <collision>
                 <!--        <origin xyz="0 0 0" rpy="0 0 0"/>-->
@@ -28,7 +28,7 @@
             </collision>
         </link>
 
-        <joint name="joint_wheel${num}" type="continuous">
+        <joint name="joint_wheel${num}" type="revolute">
             <parent link="base_link"/>
             <child link="link_driven_wheel${num}"/>
             <xacro:insert_block name="axis"/>

@@ -1,28 +1,67 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-    <xacro:include filename="$(find rm_description)/urdf/common/friction.urdf.xacro"/>
+    <link name="upper_left_friction">
+        <inertial>
+             <mass value="0.15269"/>
+             <origin xyz="0 0 -0.004"/>
+             <inertia ixx="4.776e-5" ixy="2.192e-7" ixz="-1.28e-7" iyy="4.759e-5"
+                      iyz="-1.683e-7" izz="6.148e-5"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://rm_description/meshes/sentry/upper_friction.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://rm_description/meshes/sentry/upper_friction.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
 
+    <joint name="upper_left_friction_wheel_joint" type="continuous">
+        <origin xyz="47e-3 36.50e-3 -0.4e-3" rpy="0 0 0"/>
+        <parent link="upper_pitch"/>
+        <child link="upper_left_friction"/>
+        <axis xyz="0 0 1 "/>
+    </joint>
 
-    <xacro:property name="wheel_offset_x" value="0.009"/>
-    <xacro:property name="wheel_offset_y" value="0.0365"/>
-    <xacro:property name="wheel_offset_z" value="0.00576"/>
+    <link name="upper_right_friction">
+        <inertial>
+             <mass value="0.15269"/>
+             <origin xyz="0 0 -0.004"/>
+             <inertia ixx="4.776e-5" ixy="2.192e-7" ixz="-1.28e-7" iyy="4.759e-5"
+                      iyz="-1.683e-7" izz="6.148e-5"/>
+        </inertial>
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://rm_description/meshes/sentry/upper_friction_wheel.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://rm_description/meshes/sentry/upper_friction_wheel.stl" scale="0.001 0.001 0.001"/>
+            </geometry>
+        </collision>
+    </link>
 
-
-    <xacro:friction_wheel prefixs="upper_left" connected_to="upper_pitch"
-                          wheel_x_offset="${wheel_offset_x}" wheel_y_offset="${-wheel_offset_y}"
-                          wheel_z_offset="${wheel_offset_z}"/>
-
-    <xacro:friction_wheel prefixs="upper_right" connected_to="upper_pitch"
-                          wheel_x_offset="${wheel_offset_x}" wheel_y_offset="${wheel_offset_y}"
-                          wheel_z_offset="${wheel_offset_z}"/>
-
+    <joint name="upper_right_friction_wheel_joint" type="continuous">
+        <origin xyz="47e-3 -36.50e-3 -0.4e-3" rpy="0 0 0"/>
+        <parent link="upper_pitch"/>
+        <child link="upper_right_friction"/>
+        <axis xyz="0 0 1 "/>
+    </joint>
 
     <link name="upper_trigger">
         <inertial>
-            <mass value="0.328"/>
-            <origin xyz="1.854e-3 -4.952e-3 20.252e-3"/>
-            <inertia ixx="5.284e-4" ixy="26474.311e-9" ixz="-5533.967e-9" iyy="3.633e-4"
-                     iyz="3258.006e-9" izz="4.750e-4"/>
+            <mass value="344.827e-3"/>
+            <origin xyz="-26.584e-3 0.526e-3 14.311e-3"/>
+            <inertia ixx="2.365e-4" ixy="-100.189e-9" ixz="1.146e-4" iyy="6.707e-4"
+                     iyz="81.455e-9" izz="6.916e-4"/>
         </inertial>
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -39,13 +78,11 @@
     </link>
 
     <joint name="upper_trigger_joint" type="continuous">
-        <origin xyz="-64.86e-3 0 -19e-3" rpy="0 0 0"/>
+        <origin xyz="-0.142e-3 -23.51e-3 85.467e-3" rpy="0 0 0"/>
         <dynamics damping="0.0" friction="0.01"/>
-        <limit effort="1.0" velocity="43.54" lower="-1e16" upper="1e16"/>
-        <parent link="upper_pitch"/>
+        <parent link="base_link"/>
         <child link="upper_trigger"/>
         <axis xyz="0 0 1 "/>
     </joint>
-
 
 </robot>
