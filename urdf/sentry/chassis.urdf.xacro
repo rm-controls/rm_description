@@ -2,16 +2,16 @@
 
     <xacro:include filename="driven_wheel1.urdf.xacro"/>
     <xacro:include filename="driven_wheel2.urdf.xacro"/>
-    <xacro:include filename="driven_wheel3.urdf.xacro"/>
+
 
     <xacro:macro name="chassis" params="use_simulation">
 
         <link name="base_link">
             <inertial>
-                <mass value="6982.046e-3"/>
-                <origin xyz="2.335e-3 21.529e-3 -63.905e-3"/>
-                <inertia ixx="1.984e-1" ixy="1.366e-3" ixz="2.748e-3" iyy="1.284e-1"
-                         iyz="3.820e-3" izz="1.524e-1"/>
+                <mass value="6392.711e-3"/>
+                <origin xyz="17.924e-3 -11.095e-3 51.909e-3"/>
+                <inertia ixx="1.795e-1" ixy="4.102e-3" ixz="-8.862e-3" iyy="1.461e-1"
+                         iyz="1.34e-2" izz="1.896e-1"/>
             </inertial>
             <visual>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -29,10 +29,10 @@
 
         <link name="drive_wheel_link">
             <inertial>
-                <mass value="65.448e-3"/>
-                <origin xyz="0.027e-3 29.066e-3 0.001e-3"/>
-                <inertia ixx="74809.989e-9" ixy="-10.328e-9" ixz="-0.001e-9" iyy="32620.511e-9"
-                         iyz="-2.066e-9" izz="74795.135e-9"/>
+                <mass value="132.98e-3"/>
+                <origin xyz="-8.446e-13 -5.201e-3 -1.155e-12"/>
+                <inertia ixx="1.885e-4" ixy="1.005e-15" ixz="0.002e-9" iyy="3.687e-4"
+                         iyz="2.311e-15" izz="1.885e-4"/>
             </inertial>
             <visual>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -41,9 +41,9 @@
                 </geometry>
             </visual>
             <collision>
-                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <origin xyz="0 -0.004 0" rpy="0 0 0"/>
                 <geometry>
-                    <mesh filename="package://rm_description/meshes/sentry/drive_wheel.stl" scale="0.001 0.001 0.001"/>
+                    <box size="0.127 0.02435 0.127"/>
                 </geometry>
             </collision>
         </link>
@@ -53,45 +53,139 @@
             <limit effort="1.2" velocity="34" lower="-1e9" upper="1e9"/>
             <parent link="base_link"/>
             <child link="drive_wheel_link"/>
-            <origin xyz="0 -63.36e-3 5e-3" rpy="0 0 0"/>
+            <origin xyz="0 51.65e-3 94.5e-3" rpy="0 0 0"/>
+        </joint>
+
+        <link name="slider_link">
+            <inertial>
+                <mass value="66.212e-3"/>
+                <origin xyz="-3.002e-3 -13.823e-3 14.751e-3"/>
+                <inertia ixx="20612.923e-9" ixy="-2537.219e-9" ixz="-2423.351e-9" iyy="78493.793e-9"
+                         iyz="-347.633e-9" izz="86435.358e-9"/>
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://rm_description/meshes/sentry/slider.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="-0.01 -0.001 0.01" rpy="0 0 0"/>
+                <geometry>
+                    <box size="0.14 0.064 0.0353"/>
+                </geometry>
+            </collision>
+        </link>
+
+        <joint name="slider_joint" type="prismatic">
+            <axis xyz="1 0 0"/>
+            <limit effort="1.2" velocity="34" lower="-1e9" upper="1e9"/>
+            <parent link="base_link"/>
+            <child link="slider_link"/>
+            <origin xyz="12e-3 -87e-3 43.70e-3" rpy="0 0 0"/>
+        </joint>
+
+        <link name="catapult_link">
+            <inertial>
+                <mass value="166.084e-3"/>
+                <origin xyz="-27.478e-3 -1.971e-3 -14.369e-3"/>
+                <inertia ixx="3.3471e-4" ixy="-5535.584e-9" ixz="2.741e-4" iyy="6.09e-4"
+                         iyz="23411.215e-9" izz="3.63e-4"/>
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://rm_description/meshes/sentry/catapult.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://rm_description/meshes/sentry/catapult.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </collision>
+        </link>
+
+        <joint name="catapult_joint" type="revolute">
+            <axis xyz="0 1 0"/>
+            <limit effort="1.2" velocity="34" lower="-1e9" upper="1e9"/>
+            <parent link="slider_link"/>
+            <child link="catapult_link"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
         </joint>
 
         <xacro:if value="$(arg use_simulation)">
             <xacro:driven_wheel1 num="1">
-                <origin rpy="${-pi/2} 0 0"/>
+                <origin xyz="0 -2.5e-3 -8.008e-13" rpy="0 0 0"/>
                 <axis xyz="0 1 0"/>
-                <origin xyz="-0.0977 0.0839 -0.013" rpy="0 0 0"/>
+                <origin xyz="257.5e-3 -72.5e-3 37e-3" rpy="0 0 0"/>
             </xacro:driven_wheel1>
 
             <xacro:driven_wheel1 num="2">
-                <origin rpy="${-pi/2} 0 0"/>
+                <origin xyz="0 -2.5e-3 -8.008e-13" rpy="0 0 0"/>
                 <axis xyz="0 1 0"/>
-                <origin xyz="0.0977 0.0839 -0.013" rpy="0 0 0"/>
+                <origin xyz="-257.5e-3 -72.5e-3 37e-3" rpy="0 0 0"/>
             </xacro:driven_wheel1>
 
-            <xacro:driven_wheel2 num="3">
-                <origin rpy="0 0 0"/>
+            <xacro:driven_wheel1 num="3">
+                <origin xyz="0 -2.5e-3 -8.008e-13" rpy="0 0 0"/>
+                <axis xyz="0 1 0"/>
+                <origin xyz="-125e-3 65.2e-3 37e-3" rpy="0 0 0"/>
+            </xacro:driven_wheel1>
+
+            <xacro:driven_wheel1 num="4">
+                <origin xyz="0 -2.5e-3 -8.008e-13" rpy="0 0 0"/>
+                <axis xyz="0 1 0"/>
+                <origin xyz="125e-3 65.2e-3 37e-3" rpy="0 0 0"/>
+            </xacro:driven_wheel1>
+
+            <xacro:driven_wheel1 num="5">
+                <origin xyz="0 -2.5e-3 -8.008e-13" rpy="0 0 0"/>
+                <axis xyz="0 1 0"/>
+                <origin xyz="105e-3 -33.5e-3 -40e-3" rpy="0 0 0"/>
+            </xacro:driven_wheel1>
+
+            <xacro:driven_wheel1 num="6">
+                <origin xyz="0 -2.5e-3 -8.008e-13" rpy="0 0 0"/>
+                <axis xyz="0 1 0"/>
+                <origin xyz="-105e-3 -33.5e-3 -40e-3" rpy="0 0 0"/>
+            </xacro:driven_wheel1>
+
+            <xacro:driven_wheel1 num="7">
+                <origin xyz="0 -2.5e-3 -8.008e-13" rpy="0 0 0"/>
+                <axis xyz="0 1 0"/>
+                <origin xyz="-85e-3 44.5e-3 -40e-3" rpy="0 0 0"/>
+            </xacro:driven_wheel1>
+
+            <xacro:driven_wheel1 num="8">
+                <origin xyz="0 -2.5e-3 -8.008e-13" rpy="0 0 0"/>
+                <axis xyz="0 1 0"/>
+                <origin xyz="85e-3 44.5e-3 -40e-3" rpy="0 0 0"/>
+            </xacro:driven_wheel1>
+
+            <xacro:driven_wheel2 num="9">
+                <origin xyz="0 8.008e-13 -2.5e-3" rpy="0 0 0"/>
                 <axis xyz="0 0 1"/>
-                <origin xyz="0.11 0.098 -0.05486" rpy="0 0 0"/>
+                <origin xyz="192e-3 -97e-3 -5e-4" rpy="0 0 0"/>
             </xacro:driven_wheel2>
 
-            <xacro:driven_wheel2 num="4">
-                <origin rpy="0 0 0"/>
+            <xacro:driven_wheel2 num="10">
+                <origin xyz="0 8.008e-13 -2.5e-3" rpy="0 0 0"/>
                 <axis xyz="0 0 1"/>
-                <origin xyz="-0.11 0.098 -0.05486" rpy="0 0 0"/>
+                <origin xyz="-139.95e-3 -97e-3 4e-3" rpy="0 0 0"/>
             </xacro:driven_wheel2>
 
-            <xacro:driven_wheel3 num="5">
-                <origin rpy="0 0 0"/>
+            <xacro:driven_wheel2 num="11">
+                <origin xyz="0 8.008e-13 -2.5e-3" rpy="0 0 0"/>
                 <axis xyz="0 0 1"/>
-                <origin xyz="-0.07 -0.1 -0.05527" rpy="0 0 0"/>
-            </xacro:driven_wheel3>
+                <origin xyz="149e-3 97e-3 4e-3" rpy="0 0 0"/>
+            </xacro:driven_wheel2>
 
-            <xacro:driven_wheel3 num="6">
-                <origin rpy="0 0 0"/>
+            <xacro:driven_wheel2 num="12">
+               <origin xyz="0 8.008e-13 -2.5e-3" rpy="0 0 0"/>
                 <axis xyz="0 0 1"/>
-                <origin xyz="0.07 -0.1 0.05527" rpy="0 0 0"/>
-            </xacro:driven_wheel3>
+                <origin xyz="-149e-3 97e-3 4e-3" rpy="0 0 0"/>
+            </xacro:driven_wheel2>
         </xacro:if>
 
     </xacro:macro>
