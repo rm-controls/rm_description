@@ -77,7 +77,7 @@
             </actuator>
             <joint name="joint7">
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-                <offset>0.92119356</offset>
+                <offset>0.8493</offset>
             </joint>
         </transmission>
 
