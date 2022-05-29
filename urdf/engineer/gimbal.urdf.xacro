@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="gimbal">
+    <!-- safety_distance: Minimum safety distance in [m] by which the collision volumes are expanded and which is enforced during robot motions -->
+    <xacro:macro name="gimbal" params="connected_to:='' xyz:='0 0 0' rpy:='0 0 0' simulation">
+
+        <link name="gimbal_base">
+            <inertial>
+                <mass value="0.2"/>
+                <origin xyz="-0.034 0.002 0.036"/>
+                <inertia ixx="4.878e-4" ixy="1.941e-5" ixz="2.44e-4" iyy="8.322e-4"
+                         iyz="-1.812e-5" izz="4.513e-4"/>
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://rm_description/meshes/engineer/gimbal_base.stl"
+                          scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://rm_description/meshes/engineer/gimbal_base.stl"
+                          scale="0.001 0.001 0.001"/>
+                </geometry>
+            </collision>
+        </link>
+
+        <link name="yaw">
+            <inertial>
+                <mass value="0.2"/>
+                <origin xyz="-0.034 0.002 0.036"/>
+                <inertia ixx="4.878e-4" ixy="1.941e-5" ixz="2.44e-4" iyy="8.322e-4"
+                         iyz="-1.812e-5" izz="4.513e-4"/>
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://rm_description/meshes/engineer/yaw.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://rm_description/meshes/engineer/yaw.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </collision>
+        </link>
+
+        <link name="pitch">
+            <inertial>
+                <mass value="0.644"/>
+                <origin xyz="0.029 0.000617 0.0376"/>
+                <inertia ixx="1.8216e-3" ixy="5.514e-6" ixz="1.58e-4" iyy="5.68e-3"
+                         iyz="-6.628e-6" izz="4.396e-3"/>
+            </inertial>
+            <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://rm_description/meshes/engineer/pitch.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://rm_description/meshes/engineer/pitch.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </collision>
+        </link>
+
+        <xacro:unless value="${connected_to == ''}">
+            <joint name="gimbal_base_joint" type="fixed">
+                <origin xyz="${xyz}" rpy="${rpy}"/>
+                <parent link="${connected_to}"/>
+                <child link="gimbal_base"/>
+            </joint>
+        </xacro:unless>
+
+        <joint name="yaw_joint" type="revolute">
+            <origin xyz="0 0 0.03"
+                    rpy="0 0 0"/>
+            <dynamics damping="0.0" friction="0.1"/>
+            <limit effort="0.2" velocity="10" lower="-0.6197" upper="3.4545"/>
+            <!--            <safety_controller k_position="2" k_velocity="0.02" soft_lower_limit="-0.519" soft_upper_limit="3.35"/>-->
+            <parent link="gimbal_base"/>
+            <child link="yaw"/>
+            <axis xyz="0 0 1"/>
+        </joint>
+
+        <joint name="pitch_joint" type="revolute">
+            <origin xyz="0.  0. 0.056 " rpy="0 0 0"/>
+            <dynamics damping="0.0" friction="0.1"/>
+            <limit effort="0.2" velocity="10" lower="-0.47247" upper="1.25862"/>
+            <parent link="yaw"/>
+            <child link="pitch"/>
+            <axis xyz="0 1 0 "/>
+        </joint>
+
+        <transmission name="trans_yaw_joint">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="yaw_joint_motor">
+                <mechanicalReduction>-1</mechanicalReduction>
+            </actuator>
+            <joint name="yaw_joint">
+                <offset>0</offset>
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+
+        <transmission name="trans_pitch_joint">
+            <type>transmission_interface/SimpleTransmission</type>
+            <actuator name="pitch_joint_motor">
+                <mechanicalReduction>-1</mechanicalReduction>
+            </actuator>
+            <joint name="pitch_joint">
+                <offset>0</offset>
+                <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
+
+    </xacro:macro>
+</robot>

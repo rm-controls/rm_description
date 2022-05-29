@@ -14,6 +14,8 @@
         <xacro:arm connected_to="base_link" simulation="$(arg use_simulation)"/>
         <xacro:include filename="$(find rm_description)/urdf/engineer/arm.transmission.xacro"/>
         <xacro:arm_transmission simulation="$(arg use_simulation)"/>
+        <xacro:include filename="$(find rm_description)/urdf/engineer/gimbal.urdf.xacro"/>
+        <xacro:gimbal connected_to="link3" xyz="0 0.148333 0.039" rpy="0 0 0" simulation="$(arg use_simulation)"/>
     </xacro:if>
 
     <xacro:if value="$(arg use_simulation)">

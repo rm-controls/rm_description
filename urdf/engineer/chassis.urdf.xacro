@@ -17,7 +17,7 @@
             <visual>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
                 <geometry>
-                    <mesh filename="package://rm_description/meshes/engineer/base.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="package://rm_description/meshes/engineer/base_link.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
             </visual>
             <collision>
@@ -217,10 +217,10 @@
                             x_offset="${-wheel_track/2}" y_offset="${-wheel_base/2}"
                             z_offset="${wheel_offset_z}"/>
 
-        <xacro:swerve_transmission prefix="left_front" wheel_reduction="-13.733" pivot_offset="3.0629664"/>
-        <xacro:swerve_transmission prefix="right_front" wheel_reduction="-13.733" pivot_offset="6.26861044"/>
-        <xacro:swerve_transmission prefix="left_back" wheel_reduction="-13.733" pivot_offset="5.276003"/>
-        <xacro:swerve_transmission prefix="right_back" wheel_reduction="-13.733" pivot_offset="2.3265657"/>
+        <xacro:swerve_transmission prefix="left_front" wheel_reduction="13" pivot_offset="6.288554632"/>
+        <xacro:swerve_transmission prefix="right_front" wheel_reduction="13" pivot_offset="3.11052562"/>
+        <xacro:swerve_transmission prefix="left_back" wheel_reduction="13" pivot_offset="2.101043076"/>
+        <xacro:swerve_transmission prefix="right_back" wheel_reduction="13" pivot_offset="5.472377256"/>
 
     </xacro:macro>
 
