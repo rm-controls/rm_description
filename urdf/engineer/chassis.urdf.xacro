@@ -126,14 +126,14 @@
                          izz="4.126e-3"/>
             </inertial>
             <visual>
-                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <origin xyz="0 0 0" rpy="0 0 -1.57"/>
                 <geometry>
                     <mesh filename="package://rm_description/meshes/engineer/card.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
             </visual>
             <collision>
                 <geometry>
-                    <mesh filename="package://rm_description/meshes/engineer/card_collision.stl"
+                    <mesh filename="package://rm_description/meshes/engineer/card_collision1.stl"
                           scale="0.001 0.001 0.001"/>
                 </geometry>
             </collision>
@@ -141,9 +141,10 @@
 
         <link name="drag">
             <inertial>
-                <mass value="0.252375"/>
-                <origin xyz="-0.230445 -0.072148 0.051026"/>
-                <inertia ixx="3.688e-3" ixy="-3.738e-3" ixz="2.667e-3" iyy="1.480e-2" iyz="1.299e-3" izz="1.663e-2"/>
+                <mass value="0.404605"/>
+                <origin xyz="0.053283 0.032371 0.017125"/>
+                <inertia ixx="5.893e-3" ixy="1.346e-4" ixz="-8.957569e-5" iyy="2.879e-3" iyz="-4.020e-4"
+                         izz="8.206e-3"/>
             </inertial>
             <visual>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -153,9 +154,10 @@
                 </geometry>
             </visual>
             <collision>
-                <origin xyz="-0.041518 0.077 0.017" rpy="0 0 0"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
                 <geometry>
-                    <box size="0.112768 0.009 0.018"/>
+                    <mesh filename="package://rm_description/meshes/engineer/drag_collision.stl"
+                          scale="0.001 0.001 0.001"/>
                 </geometry>
             </collision>
             <collision>
@@ -169,7 +171,7 @@
         <joint name="card_joint" type="revolute">
             <parent link="base_link"/>
             <child link="card"/>
-            <origin xyz="0. 0.175076 -0.008" rpy="0 0 0"/>
+            <origin xyz="0.244 -0.0585 0.036" rpy="0 0 -1.57"/>
             <axis xyz="1 0 0"/>
             <limit lower="-1000000" upper="1000000" velocity="1" effort="200"/>
         </joint>
@@ -177,15 +179,15 @@
         <joint name="drag_joint" type="revolute">
             <parent link="base_link"/>
             <child link="drag"/>
-            <origin xyz="-0.245 -0.000076 0.06" rpy="0 0 0"/>
+            <origin xyz="-0.245 0 0.06" rpy="0 0 3.14"/>
             <axis xyz="0 1 0"/>
-            <limit lower="-6.28" upper="6.28" velocity="1" effort="200"/>
+            <limit lower="-1.6" upper="-0.01" velocity="1" effort="200"/>
         </joint>
 
         <transmission name="trans_card_joint">
             <type>transmission_interface/SimpleTransmission</type>
             <actuator name="card_joint_motor">
-                <mechanicalReduction>50.895</mechanicalReduction>
+                <mechanicalReduction>36</mechanicalReduction>
             </actuator>
             <joint name="card_joint">
                 <offset>0</offset>
@@ -196,10 +198,10 @@
         <transmission name="trans_drag_joint">
             <type>transmission_interface/SimpleTransmission</type>
             <actuator name="drag_joint_motor">
-                <mechanicalReduction>1</mechanicalReduction>
+                <mechanicalReduction>2</mechanicalReduction>
             </actuator>
             <joint name="drag_joint">
-                <offset>0</offset>
+                <offset>-1.625664</offset>
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
         </transmission>

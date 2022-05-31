@@ -5,10 +5,10 @@
 
         <link name="gimbal_base">
             <inertial>
-                <mass value="0.2"/>
-                <origin xyz="-0.034 0.002 0.036"/>
-                <inertia ixx="4.878e-4" ixy="1.941e-5" ixz="2.44e-4" iyy="8.322e-4"
-                         iyz="-1.812e-5" izz="4.513e-4"/>
+                <mass value="0.163485"/>
+                <origin xyz="0.000652 0.002177 0.009113"/>
+                <inertia ixx="7.4761869e-5" ixy="-1.177056e-6" ixz="-2.348598e-6" iyy="7.440176e-5"
+                         iyz="6.29861e-6" izz="6.3915e-5"/>
             </inertial>
             <visual>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -17,21 +17,14 @@
                           scale="0.001 0.001 0.001"/>
                 </geometry>
             </visual>
-            <collision>
-                <origin xyz="0 0 0" rpy="0 0 0"/>
-                <geometry>
-                    <mesh filename="package://rm_description/meshes/engineer/gimbal_base.stl"
-                          scale="0.001 0.001 0.001"/>
-                </geometry>
-            </collision>
         </link>
 
         <link name="yaw">
             <inertial>
-                <mass value="0.2"/>
-                <origin xyz="-0.034 0.002 0.036"/>
-                <inertia ixx="4.878e-4" ixy="1.941e-5" ixz="2.44e-4" iyy="8.322e-4"
-                         iyz="-1.812e-5" izz="4.513e-4"/>
+                <mass value="0.074489"/>
+                <origin xyz="0.000003 -0.001925 0.013798"/>
+                <inertia ixx="1.672e-4" ixy="-0.42e-9" ixz="1.5288e-8" iyy="5.1826669e-5"
+                         iyz="-5.33194e-7" izz="1.439e-4"/>
             </inertial>
             <visual>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -39,20 +32,14 @@
                     <mesh filename="package://rm_description/meshes/engineer/yaw.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
             </visual>
-            <collision>
-                <origin xyz="0 0 0" rpy="0 0 0"/>
-                <geometry>
-                    <mesh filename="package://rm_description/meshes/engineer/yaw.stl" scale="0.001 0.001 0.001"/>
-                </geometry>
-            </collision>
         </link>
 
         <link name="pitch">
             <inertial>
-                <mass value="0.644"/>
-                <origin xyz="0.029 0.000617 0.0376"/>
-                <inertia ixx="1.8216e-3" ixy="5.514e-6" ixz="1.58e-4" iyy="5.68e-3"
-                         iyz="-6.628e-6" izz="4.396e-3"/>
+                <mass value="0.28963"/>
+                <origin xyz="0.001291 0.005233 0.001395"/>
+                <inertia ixx="2.976e-4" ixy="5.294138e-6" ixz="-5.514329e-6" iyy="1.889e-4"
+                         iyz="3.085924e-6" izz="4.132e-4"/>
             </inertial>
             <visual>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -60,12 +47,6 @@
                     <mesh filename="package://rm_description/meshes/engineer/pitch.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
             </visual>
-            <collision>
-                <origin xyz="0 0 0" rpy="0 0 0"/>
-                <geometry>
-                    <mesh filename="package://rm_description/meshes/engineer/pitch.stl" scale="0.001 0.001 0.001"/>
-                </geometry>
-            </collision>
         </link>
 
         <xacro:unless value="${connected_to == ''}">
@@ -102,7 +83,7 @@
                 <mechanicalReduction>-1</mechanicalReduction>
             </actuator>
             <joint name="yaw_joint">
-                <offset>0</offset>
+                <offset>3.48597</offset>
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
         </transmission>
@@ -110,10 +91,10 @@
         <transmission name="trans_pitch_joint">
             <type>transmission_interface/SimpleTransmission</type>
             <actuator name="pitch_joint_motor">
-                <mechanicalReduction>-1</mechanicalReduction>
+                <mechanicalReduction>1</mechanicalReduction>
             </actuator>
             <joint name="pitch_joint">
-                <offset>0</offset>
+                <offset>0.75088</offset>
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
         </transmission>
