@@ -7,10 +7,10 @@
 
     <link name="yaw">
         <inertial>
-            <mass value="2.171"/>
-            <origin xyz="-0.0423 0.0528 0.0324"/>
-            <inertia ixx="1.926e-2" ixy="4.754e-3" ixz="7.073e-3" iyy="1.801e-2"
-                     iyz="-3.208e-3" izz="1.945e-2"/>
+            <mass value="3.362534"/>
+            <origin xyz="-0.048138 0.035027 0.064443"/>
+            <inertia ixx="5.361E-02" ixy="-1.810E-03" ixz="1.319E-02" iyy="4.651E-02"
+                     iyz="1.298E-02" izz="2.967E-02"/>
         </inertial>
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -27,10 +27,10 @@
     </link>
 
     <joint name="yaw_joint" type="revolute">
-        <origin xyz="0 0 0.205"
+        <origin xyz="0 0 0.184"
                 rpy="0 0 0"/>
         <dynamics damping="0.0" friction="0.1"/>
-        <limit effort="1.2" velocity="13.82" lower="-1e10" upper="1e10"/>
+        <limit effort="1.2" velocity="13.82" lower="-1E10" upper="1E10"/>
         <parent link="base_link"/>
         <child link="yaw"/>
         <axis xyz="0 0 1"/>
@@ -38,10 +38,10 @@
 
     <link name="pitch">
         <inertial>
-            <mass value="1.43"/>
-            <origin xyz="0.0480 0.00133 0.0501"/>
-            <inertia ixx="1.087e-2" ixy="1.543e-3" ixz="-1.474e-3" iyy="1.820e-2"
-                     iyz="3.219e-3" izz="1.614e-2"/>
+            <mass value="1.183148"/>
+            <origin xyz="0.085638 0.00023 0.047017"/>
+            <inertia ixx="2.934E-03" ixy="3.462E-05" ixz="1.834E-03" iyy="9.223E-03"
+                     iyz="-0.422E-05" izz="8.072E-03"/>
         </inertial>
         <visual>
             <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -58,7 +58,7 @@
     </link>
 
     <joint name="pitch_joint" type="revolute">
-        <origin xyz="-0.05 0 0.151 " rpy="0 0 0"/>
+        <origin xyz="-0.05 0 0.151" rpy="0 0 0"/>
         <dynamics damping="0.0" friction="0.1"/>
         <limit effort="1.2" velocity="13.82" lower="${pitch_lower_limit}" upper="${pitch_upper_limit}"/>
         <safety_controller k_velocity="0.1"

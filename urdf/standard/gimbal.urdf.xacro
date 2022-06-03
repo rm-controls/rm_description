@@ -2,8 +2,8 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
     <xacro:property name="threshold" value="0.1"/>
-    <xacro:property name="pitch_lower_limit" value="-0.627"/>
-    <xacro:property name="pitch_upper_limit" value="0.406"/>
+    <xacro:property name="pitch_lower_limit" value="-0.6"/>
+    <xacro:property name="pitch_upper_limit" value="0.457"/>
 
     <link name="yaw">
         <inertial>
@@ -36,6 +36,13 @@
         <axis xyz="0 0 1"/>
     </joint>
 
+    <link name="supply_frame"/>
+    <joint name="supply_joint" type="fixed">
+        <origin xyz="0 0 0" rpy="0 0 ${pi/2}"/>
+        <parent link="yaw"/>
+        <child link="supply_frame"/>
+    </joint>
+
     <link name="pitch">
         <inertial>
             <mass value="0.644"/>
@@ -60,7 +67,7 @@
     <joint name="pitch_joint" type="revolute">
         <origin xyz="0 0 0.09" rpy="0 0 0"/>
         <dynamics damping="0.0" friction="0.1"/>
-        <limit effort="3" velocity="13.82" lower="${pitch_lower_limit}" upper="${pitch_upper_limit}"/>
+        <limit effort="3." velocity="86" lower="${pitch_lower_limit}" upper="${pitch_upper_limit}"/>
         <safety_controller k_position="100" k_velocity="0.1"
                            soft_lower_limit="${pitch_lower_limit+threshold}"
                            soft_upper_limit="${pitch_upper_limit-threshold}"/>

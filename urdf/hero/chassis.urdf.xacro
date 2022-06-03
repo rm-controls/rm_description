@@ -3,18 +3,18 @@
     <xacro:include filename="$(find rm_description)/urdf/common/mecanum_wheel.urdf.xacro"/>
 
     <!-- https://upload.wikimedia.org/wikipedia/commons/5/52/Wheelbase_and_Track.png -->
-    <xacro:property name="wheel_track" value="0.392"/>
-    <xacro:property name="wheel_base" value="0.404"/>
-    <xacro:property name="wheel_offset_z" value="0.000031"/>
+    <xacro:property name="wheel_track" value="0.4"/>
+    <xacro:property name="wheel_base" value="0.4"/>
+    <xacro:property name="wheel_offset_z" value="-0.068374"/>
 
     <xacro:macro name="chassis" params="roller_type">
 
         <link name="base_link">
             <inertial>
-                <mass value="8.44"/>
-                <origin xyz="-0.000578 0.00437 0.0620"/>
-                <inertia ixx="2.081e-1" ixy="5.195e-3" ixz="2.242e-3" iyy="2.784e-1"
-                         iyz="2.494e-3" izz="3.521e-1"/>
+                <mass value="10.34269"/>
+                <origin xyz="-0.003691 -0.001885 0.024404"/>
+                <inertia ixx="1.952E-01" ixy="-1.504E-03" ixz="5.871E-03" iyy="3.011E-01"
+                         iyz="-1.077E-03" izz="4.074E-01"/>
             </inertial>
             <visual>
                 <origin xyz="0 0 0" rpy="0 0 0"/>

@@ -2,8 +2,6 @@
 
     <xacro:property name="wheel_radius" value="0.0762"/>
     <xacro:property name="roller_radius" value="0.009"/>
-    <xacro:property name="wheel_joint_effort" value="10"/>
-    <xacro:property name="wheel_joint_velocity" value="70"/>
 
     <xacro:macro name="roller" params="prefix suffix theta roller_type">
         <xacro:if value="${suffix % 2 == 1}">
@@ -62,7 +60,7 @@
     </xacro:macro>
 
     <xacro:macro name="omni_wheel"
-                 params="prefix connected_to wheel_x_offset wheel_y_offset wheel_z_offset rotation_degree roller_type">
+                 params="prefix connected_to wheel_x_offset wheel_y_offset wheel_z_offset rotation_degree roller_type max_effort max_velocity">
         <!--  link  -->
         <link name="${prefix}_wheel">
             <visual>
@@ -82,7 +80,7 @@
             <axis xyz="0 1 0"/>
             <origin xyz="${wheel_x_offset} ${wheel_y_offset} ${wheel_offset_z}" rpy="0 0 ${rotation_degree}"/>
             <!--      limit not work while type="continuous"-->
-            <limit effort="${wheel_joint_effort}" velocity="${wheel_joint_velocity}" lower="-1e9" upper="1e9"/>
+            <limit effort="${max_effort}" velocity="${max_velocity}" lower="-1e9" upper="1e9"/>
             <dynamics damping="0.0" friction="0.05"/>
             <parent link="${connected_to}"/>
             <child link="${prefix}_wheel"/>
