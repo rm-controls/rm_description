@@ -14,15 +14,17 @@
             </geometry>
         </visual>
         <collision>
-            <origin xyz="0 -0.00125 0.012" rpy="0 0 0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <box size="0.072 0.07 0.055"/>
+                <mesh filename="package://rm_description/meshes/sentry/upper_friction_wheel.stl" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
     </link>
 
     <joint name="upper_left_friction_wheel_joint" type="continuous">
         <origin xyz="47e-3 36.50e-3 -0.4e-3" rpy="0 0 0"/>
+        <dynamics damping="0.0" friction="0.01"/>
+        <limit upper="1e16" lower="-1e16" effort="0.156" velocity="942.66"/>
         <parent link="upper_pitch"/>
         <child link="upper_left_friction"/>
         <axis xyz="0 0 1 "/>
@@ -42,15 +44,17 @@
             </geometry>
         </visual>
         <collision>
-            <origin xyz="0 0.00125 0.012" rpy="0 0 0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <box size="0.072 0.07 0.055"/>
+                <mesh filename="package://rm_description/meshes/sentry/upper_friction_wheel.stl" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
     </link>
 
     <joint name="upper_right_friction_wheel_joint" type="continuous">
         <origin xyz="47e-3 -36.50e-3 -0.4e-3" rpy="0 0 0"/>
+        <dynamics damping="0.0" friction="0.01"/>
+        <limit upper="1e16" lower="-1e16" effort="0.156" velocity="942.66"/>
         <parent link="upper_pitch"/>
         <child link="upper_right_friction"/>
         <axis xyz="0 0 1 "/>
@@ -70,9 +74,9 @@
             </geometry>
         </visual>
         <collision>
-            <origin xyz="0 0 0.006" rpy="0 0 0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
             <geometry>
-                <box size="0.105 0.104 0.045"/>
+                <mesh filename="package://rm_description/meshes/sentry/upper_trigger_collision.stl" scale="0.001 0.001 0.001"/>
             </geometry>
         </collision>
     </link>

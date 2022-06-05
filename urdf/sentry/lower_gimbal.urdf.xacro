@@ -9,27 +9,23 @@
 
   <link name="lower_yaw">
     <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
         <mesh filename="package://rm_description/meshes/sentry/lower_yaw.stl"
               scale="0.001 0.001 0.001"/>
       </geometry>
     </visual>
     <inertial>
-      <mass value="599.396e-3"/>
-      <origin xyz="-67.151e-3 -7.823e-3 -37.636e-3" rpy="0 0 0"/>
-      <inertia ixx="3.787e-4" ixy="-46745.03e-9" ixz="5459.222e-9" iyy="8.443e-4"
-               iyz="1835.055e-9" izz="6.561e-4"/>
+      <mass value="99.15e-3"/>
+      <origin xyz="-10.311e-3 -2.902e-3 -40.101e-3" rpy="0 0 0"/>
+      <inertia ixx="1.456e-4" ixy="-7242.148e-9" ixz="-28572.972e-9" iyy="1.608e-4"
+               iyz="-13303.908e-9" izz="52950.519e-9"/>
     </inertial>
     <collision>
-      <origin xyz="-0.008 0 -0.0535" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.085 0.069 0.13"/>
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="-0.0822 0.02 -0.06" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.064 0.028 0.12"/>
+        <mesh filename="package://rm_description/meshes/sentry/lower_yaw_collision.stl"
+                      scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -48,10 +44,10 @@
 
   <link name="lower_pitch">
     <inertial>
-      <mass value="584.157e-3"/>
-      <origin xyz="31.362e-3 -0.689e-3 -36.945e-3"/>
-      <inertia ixx="1.030e-3" ixy="-18463.46e-9" ixz="-9.122e-4" iyy="4.507e-3"
-               iyz="8105.967e-9" izz="4.096e-3"/>
+      <mass value="809.574e-3"/>
+      <origin xyz="21.588e-3 -0.686e-3 -30.256e-3"/>
+      <inertia ixx="2.031e-3" ixy="-27414.264e-9" ixz="-55245.014e-9" iyy="6.195e-3"
+               iyz="31445.023e-9" izz="4.728e-3"/>
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -60,21 +56,9 @@
       </geometry>
     </visual>
     <collision>
-      <origin xyz="-0.005 0 -0.065" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.25 0.075 0.068"/>
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="0.125 0 0" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.12 0.045 0.045"/>
-      </geometry>
-    </collision>
-    <collision>
-      <origin xyz="0.045 0 -0.008" rpy="0 0 0"/>
-      <geometry>
-        <box size="0.065 0.14 0.05"/>
+        <mesh filename="package://rm_description/meshes/sentry/lower_pitch_collision.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -91,7 +75,7 @@
                        soft_upper_limit="${pitch_upper_limit-threshold}"/>
   </joint>
 
-  <link name="lower_camera">
+  <!-- <link name="lower_camera">
     <inertial>
       <mass value="0.111"/>
       <origin xyz="24.789e-3 -0.019e-3 -14.471e-3"/>
@@ -105,7 +89,7 @@
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0.021 0 -0.015" rpy="0 0 0"/>
+      <origin xyz="0 0 -0.015" rpy="0 0 0"/>
       <geometry>
         <box size="0.0892 0.04 0.04"/>
       </geometry>
@@ -115,8 +99,8 @@
   <joint name="lower_camera_joint" type="fixed">
      <parent link="lower_pitch"/>
      <child link="lower_camera"/>
-     <origin xyz="29.642e-3 0 -54.20e-3" rpy="0 0 0"/>
+     <origin xyz="19.642e-3 0 -54.20e-3" rpy="0 0 0"/>
      <axis xyz="0 0 1"/>
-  </joint>
+  </joint>-->
 
 </robot>

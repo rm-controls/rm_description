@@ -13,16 +13,16 @@
                 </geometry>
             </visual>
             <inertial>
-                <mass value="2.388e-3"/>
+                <mass value="0.712e-3"/>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
-                <inertia ixx="15.764e-9" ixy="0" ixz="0" iyy="19.664e-9"
-                         iyz="1.425e-18" izz="15.764e-9"/>
+                <inertia ixx="11.315e-9" ixy="0" ixz="0" iyy="19.664e-9"
+                         iyz="0" izz="11.315e-9"/>
             </inertial>
             <collision>
-                <origin xyz="0 0.00015 0" rpy="0 0 0"/>
                 <xacro:insert_block name="pose"/>
                 <geometry>
-                    <box size="0.014 0.006 0.014"/>
+                    <mesh filename="package://rm_description/meshes/sentry/driven_wheel1.stl"
+                                              scale="0.001 0.001 0.001"/>
                 </geometry>
             </collision>
         </link>

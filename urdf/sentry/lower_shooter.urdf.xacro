@@ -31,9 +31,9 @@
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0.005 0 -0.02" rpy="0 0 0"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry>
-        <box size="0.106 0.1 0.0663"/>
+        <mesh filename="package://rm_description/meshes/sentry/lower_trigger_collision.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
