@@ -17,6 +17,13 @@
                           scale="0.001 0.001 0.001"/>
                 </geometry>
             </visual>
+            <collision>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="package://rm_description/meshes/engineer/gimbal_collision.stl"
+                          scale="0.001 0.001 0.001"/>
+                </geometry>
+            </collision>
         </link>
 
         <link name="yaw">
@@ -61,8 +68,7 @@
             <origin xyz="0 0 0.03"
                     rpy="0 0 0"/>
             <dynamics damping="0.0" friction="0.1"/>
-            <limit effort="0.2" velocity="10" lower="-0.6197" upper="3.4545"/>
-            <!--            <safety_controller k_position="2" k_velocity="0.02" soft_lower_limit="-0.519" soft_upper_limit="3.35"/>-->
+            <limit effort="1.2" velocity="30" lower="-4.3" upper="0.3"/>
             <parent link="gimbal_base"/>
             <child link="yaw"/>
             <axis xyz="0 0 1"/>
@@ -71,7 +77,7 @@
         <joint name="pitch_joint" type="revolute">
             <origin xyz="0.  0. 0.056 " rpy="0 0 0"/>
             <dynamics damping="0.0" friction="0.1"/>
-            <limit effort="0.2" velocity="10" lower="-0.47247" upper="1.25862"/>
+            <limit effort="1.2" velocity="30" lower="-0.8" upper="0.8"/>
             <parent link="yaw"/>
             <child link="pitch"/>
             <axis xyz="0 1 0 "/>
@@ -83,7 +89,7 @@
                 <mechanicalReduction>-1</mechanicalReduction>
             </actuator>
             <joint name="yaw_joint">
-                <offset>3.48597</offset>
+                <offset>0.03911</offset>
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
         </transmission>
@@ -94,7 +100,7 @@
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
             <joint name="pitch_joint">
-                <offset>0.75088</offset>
+                <offset>0.777728</offset>
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
         </transmission>
