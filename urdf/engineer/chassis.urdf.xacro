@@ -10,9 +10,9 @@
 
         <link name="base_link">
             <inertial>
-                <mass value="12.252018"/>
-                <origin xyz="0.004494 0.012027 0.169606"/>
-                <inertia ixx="1.047e0" ixy="-4.114e-3" ixz="-1.395e-2" iyy="8.849e-1" iyz="-1.357e-2" izz="6.167e-1"/>
+                <mass value="14.321805"/>
+                <origin xyz="-0.011828 -0.007426 0.160123"/>
+                <inertia ixx="1.06e0" ixy="1.071e-3" ixz="3.011e-2" iyy="9.494e-1" iyz="2.344e-2" izz="7.430e-1"/>
             </inertial>
             <visual>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -21,99 +21,10 @@
                 </geometry>
             </visual>
             <collision>
-                <origin xyz="-0.0486 0.2515 0.5235" rpy="0 0 0"/>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
                 <geometry>
-                    <box size="0.0984 0.055 0.067"/>
-                </geometry>
-            </collision>
-            <collision>
-                <origin xyz="-0.0486 -0.2515 0.5235" rpy="0 0 0"/>
-                <geometry>
-                    <box size="0.0984 0.055 0.067"/>
-                </geometry>
-            </collision>
-            <collision>
-                <origin xyz="0.125 0.24675 0.285" rpy="0 0 0"/>
-                <geometry>
-                    <box size="0.04 0.0365 0.41"/>
-                </geometry>
-            </collision>
-            <collision>
-                <origin xyz="-0.125 0.24675 0.285" rpy="0 0 0"/>
-                <geometry>
-                    <box size="0.04 0.0365 0.41"/>
-                </geometry>
-            </collision>
-            <collision>
-                <origin xyz="0.125 -0.24675 0.285" rpy="0 0 0"/>
-                <geometry>
-                    <box size="0.04 0.0365 0.41"/>
-                </geometry>
-            </collision>
-            <collision>
-                <origin xyz="-0.125 -0.24675 0.285" rpy="0 0 0"/>
-                <geometry>
-                    <box size="0.04 0.0365 0.41"/>
-                </geometry>
-            </collision>
-            <collision>
-                <origin xyz="0.125 0. 0.06" rpy="0 0 0"/>
-                <geometry>
-                    <box size="0.04 0.59 0.04"/>
-                </geometry>
-            </collision>
-            <collision>
-                <origin xyz="-0.125 0. 0.06" rpy="0 0 0"/>
-                <geometry>
-                    <box size="0.04 0.59 0.04"/>
-                </geometry>
-            </collision>
-            <collision>
-                <origin xyz="0. 0.115076 0.02" rpy="0 0 0"/>
-                <geometry>
-                    <box size="0.55 0.04 0.04"/>
-                </geometry>
-            </collision>
-            <collision>
-                <origin xyz="0. -0.115076 0.02" rpy="0 0 0"/>
-                <geometry>
-                    <box size="0.55 0.04 0.04"/>
-                </geometry>
-            </collision>
-            <collision>
-                <origin xyz="0.285 0.185 0.03" rpy="0 0 0"/>
-                <geometry>
-                    <box size="0.02 0.22 0.02"/>
-                </geometry>
-            </collision>
-            <collision>
-                <origin xyz="-0.285 0.185 0.03" rpy="0 0 0"/>
-                <geometry>
-                    <box size="0.02 0.22 0.02"/>
-                </geometry>
-            </collision>
-            <collision>
-                <origin xyz="0.285 -0.185 0.03" rpy="0 0 0"/>
-                <geometry>
-                    <box size="0.02 0.22 0.02"/>
-                </geometry>
-            </collision>
-            <collision>
-                <origin xyz="-0.285 -0.185 0.03" rpy="0 0 0"/>
-                <geometry>
-                    <box size="0.02 0.22 0.02"/>
-                </geometry>
-            </collision>
-            <collision>
-                <origin xyz="0. 0.285 0.03" rpy="0 0 0"/>
-                <geometry>
-                    <box size="0.59 0.02 0.02"/>
-                </geometry>
-            </collision>
-            <collision>
-                <origin xyz="0. -0.285 0.03" rpy="0 0 0"/>
-                <geometry>
-                    <box size="0.59 0.02 0.02"/>
+                    <mesh filename="package://rm_description/meshes/engineer/base_collision.stl"
+                          scale="0.001 0.001 0.001"/>
                 </geometry>
             </collision>
         </link>
@@ -131,12 +42,6 @@
                     <mesh filename="package://rm_description/meshes/engineer/card.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
             </visual>
-            <collision>
-                <geometry>
-                    <mesh filename="package://rm_description/meshes/engineer/card_collision1.stl"
-                          scale="0.001 0.001 0.001"/>
-                </geometry>
-            </collision>
         </link>
 
         <link name="drag">
@@ -153,41 +58,28 @@
                           scale="0.001 0.001 0.001"/>
                 </geometry>
             </visual>
-            <collision>
-                <origin xyz="0 0 0" rpy="0 0 0"/>
-                <geometry>
-                    <mesh filename="package://rm_description/meshes/engineer/drag_collision.stl"
-                          scale="0.001 0.001 0.001"/>
-                </geometry>
-            </collision>
-            <collision>
-                <origin xyz="-0.041518 -0.077 0.017" rpy="0 0 0"/>
-                <geometry>
-                    <box size="0.112768 0.009 0.018"/>
-                </geometry>
-            </collision>
         </link>
 
-        <joint name="card_joint" type="revolute">
+        <joint name="card_joint" type="prismatic">
             <parent link="base_link"/>
             <child link="card"/>
-            <origin xyz="0.244 -0.0585 0.036" rpy="0 0 -1.57"/>
-            <axis xyz="1 0 0"/>
-            <limit lower="-1000000" upper="1000000" velocity="1" effort="200"/>
+            <origin xyz="0.244 0. 0.036" rpy="0 0 -1.57"/>
+            <axis xyz="0 1 0"/>
+            <limit lower="0" upper="0.36" velocity="1" effort="200"/>
         </joint>
 
         <joint name="drag_joint" type="revolute">
             <parent link="base_link"/>
             <child link="drag"/>
-            <origin xyz="-0.245 0 0.06" rpy="0 0 3.14"/>
+            <origin xyz="0.245 0 0.06" rpy="0 0 0"/>
             <axis xyz="0 1 0"/>
-            <limit lower="-1.6" upper="-0.01" velocity="1" effort="200"/>
+            <limit lower="-10" upper="10" velocity="1" effort="200"/>
         </joint>
 
         <transmission name="trans_card_joint">
             <type>transmission_interface/SimpleTransmission</type>
             <actuator name="card_joint_motor">
-                <mechanicalReduction>36</mechanicalReduction>
+                <mechanicalReduction>1800</mechanicalReduction>
             </actuator>
             <joint name="card_joint">
                 <offset>0</offset>
@@ -201,7 +93,7 @@
                 <mechanicalReduction>2</mechanicalReduction>
             </actuator>
             <joint name="drag_joint">
-                <offset>-1.625664</offset>
+                <offset>-1.5749</offset>
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
         </transmission>
