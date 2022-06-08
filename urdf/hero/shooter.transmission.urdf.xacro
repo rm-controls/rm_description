@@ -8,6 +8,7 @@
         </actuator>
         <joint name="trigger_joint">
             <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+            <offset>0.3</offset>
         </joint>
     </transmission>
 
