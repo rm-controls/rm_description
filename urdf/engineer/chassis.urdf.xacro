@@ -28,15 +28,15 @@
                 </geometry>
             </collision>
             <collision>
-                <origin xyz="0 0.251 0.447" rpy="0 0 0"/>
+                <origin xyz="0 0.251 0.387" rpy="0 0 0"/>
                 <geometry>
-                    <box size="0.28 0.035 0.567"/>
+                    <box size="0.43 0.0387 0.567"/>
                 </geometry>
             </collision>
             <collision>
-                <origin xyz="0 -0.251 0.447" rpy="0 0 0"/>
+                <origin xyz="0 -0.251 0.407" rpy="0 0 0"/>
                 <geometry>
-                    <box size="0.28 0.035 0.567"/>
+                    <box size="0.43 0.0387 0.567"/>
                 </geometry>
             </collision>
         </link>
@@ -123,10 +123,10 @@
                             x_offset="${-wheel_track/2}" y_offset="${-wheel_base/2}"
                             z_offset="${wheel_offset_z}"/>
 
-        <xacro:swerve_transmission prefix="left_front" wheel_reduction="-13" pivot_offset="1.3086453"/>
-        <xacro:swerve_transmission prefix="right_front" wheel_reduction="-13" pivot_offset="6.238694172"/>
-        <xacro:swerve_transmission prefix="left_back" wheel_reduction="-13" pivot_offset="7.3548013"/>
-        <xacro:swerve_transmission prefix="right_back" wheel_reduction="-13" pivot_offset="2.3304011"/>
+        <xacro:swerve_transmission prefix="left_front" wheel_reduction="13" pivot_offset="-1.806482"/>
+        <xacro:swerve_transmission prefix="right_front" wheel_reduction="13" pivot_offset="0.7317981"/>
+        <xacro:swerve_transmission prefix="left_back" wheel_reduction="13" pivot_offset="-2.032005516"/>
+        <xacro:swerve_transmission prefix="right_back" wheel_reduction="13" pivot_offset="0.807739452"/>
 
     </xacro:macro>
 
