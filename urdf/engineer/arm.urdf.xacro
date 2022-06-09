@@ -6,16 +6,16 @@
         <xacro:property name="joint1_lower_limit" value="0"/>
         <xacro:property name="joint2_upper_limit" value="0.3"/>
         <xacro:property name="joint2_lower_limit" value="-0.35"/>
-        <xacro:property name="joint3_upper_limit" value="0.32"/>
+        <xacro:property name="joint3_upper_limit" value="0.31"/>
         <xacro:property name="joint3_lower_limit" value="-0.12"/>
-        <xacro:property name="joint4_upper_limit" value="0.32"/>
-        <xacro:property name="joint4_lower_limit" value="-0.32"/>
-        <xacro:property name="joint5_upper_limit" value="3.3"/>
+        <xacro:property name="joint4_upper_limit" value="0.31"/>
+        <xacro:property name="joint4_lower_limit" value="-0.31"/>
+        <xacro:property name="joint5_upper_limit" value="3.8445"/>
         <xacro:property name="joint5_lower_limit" value="0"/>
-        <xacro:property name="joint6_upper_limit" value="0.75"/>
-        <xacro:property name="joint6_lower_limit" value="-0.75"/>
+        <xacro:property name="joint6_upper_limit" value="0.9"/>
+        <xacro:property name="joint6_lower_limit" value="-0.9"/>
         <xacro:property name="joint7_upper_limit" value="4"/>
-        <xacro:property name="joint7_lower_limit" value="-1.4"/>
+        <xacro:property name="joint7_lower_limit" value="-1"/>
 
         <!--  link  -->
         <link name="link1">
@@ -103,12 +103,6 @@
                           scale="0.001 0.001 0.001"/>
                 </geometry>
             </collision>
-            <collision>
-                <origin xyz="-0.04 0.153351 -0.02" rpy="0 0 0"/>
-                <geometry>
-                    <box size="0.06 0.1 0.06"/>
-                </geometry>
-            </collision>
         </link>
 
         <link name="link4">
@@ -182,7 +176,7 @@
             <child link="link1"/>
             <origin xyz="0 0 0.233" rpy="0 0 0"/>
             <axis xyz="0 0 1"/>
-            <limit lower="${joint1_lower_limit}" upper="${joint1_upper_limit}" velocity="3" effort="200"/>
+            <limit lower="${joint1_lower_limit}" upper="${joint1_upper_limit}" velocity="1.068" effort="180"/>
         </joint>
 
 
@@ -191,10 +185,7 @@
             <child link="link2_1"/>
             <origin xyz="-0.014 0. 0.0542" rpy="0 0 0"/>
             <axis xyz="1 0 0"/>
-            <limit lower="${joint2_lower_limit}" upper="${joint2_upper_limit}" velocity="3" effort="300"/>
-            <safety_controller k_position="1800" k_velocity="15"
-                               soft_lower_limit="${joint2_lower_limit+0.01}"
-                               soft_upper_limit="${joint2_upper_limit-0.01}"/>
+            <limit lower="${joint2_lower_limit}" upper="${joint2_upper_limit}" velocity="1.9" effort="120"/>
         </joint>
 
         <joint name="joint3" type="prismatic">
@@ -202,10 +193,7 @@
             <child link="link2_2"/>
             <origin xyz="-0.11 0. 0.013" rpy="0 0 0"/>
             <axis xyz="1 0 0"/>
-            <limit lower="${joint3_lower_limit}" upper="${joint3_upper_limit}" velocity="2" effort="300"/>
-            <safety_controller k_position="1800" k_velocity="18"
-                               soft_lower_limit="${joint3_lower_limit+0.008}"
-                               soft_upper_limit="${joint3_upper_limit-0.008}"/>
+            <limit lower="${joint3_lower_limit}" upper="${joint3_upper_limit}" velocity="0.95" effort="210"/>
         </joint>
 
         <joint name="joint4" type="prismatic">
@@ -213,10 +201,7 @@
             <child link="link3"/>
             <origin xyz="0. 0. 0.078" rpy="0 0 0"/>
             <axis xyz="0 1 0"/>
-            <limit lower="${joint4_lower_limit}" upper="${joint4_upper_limit}" velocity="4.5" effort="200"/>
-            <safety_controller k_position="800" k_velocity="10"
-                               soft_lower_limit="${joint4_lower_limit+0.02}"
-                               soft_upper_limit="${joint4_upper_limit-0.02}"/>
+            <limit lower="${joint4_lower_limit}" upper="${joint4_upper_limit}" velocity="1.437" effort="105"/>
         </joint>
 
         <joint name="joint5" type="revolute">
@@ -224,9 +209,9 @@
             <child link="link4"/>
             <origin xyz="0. 0. 0.02" rpy="0 0 0"/>
             <axis xyz="0 1 0"/>
-            <limit lower="${joint5_lower_limit}" upper="${joint5_upper_limit}" velocity="28.675" effort="8"/>
+            <limit lower="${joint5_lower_limit}" upper="${joint5_upper_limit}" velocity="18.53" effort="15"/>
             <safety_controller k_position="12" k_velocity="5"
-                               soft_lower_limit="${joint5_lower_limit+0}"
+                               soft_lower_limit="${joint5_lower_limit+0.03}"
                                soft_upper_limit="${joint5_upper_limit-0.1}"/>
         </joint>
 
@@ -235,7 +220,7 @@
             <child link="link5"/>
             <origin xyz="-0.0585 0. 0.04875" rpy="0 0 0"/>
             <axis xyz="1 0 0"/>
-            <limit lower="${joint6_lower_limit}" upper="${joint6_upper_limit}" velocity="28.675" effort="8"/>
+            <limit lower="${joint6_lower_limit}" upper="${joint6_upper_limit}" velocity="18.53" effort="15"/>
             <safety_controller k_position="12" k_velocity="5"
                                soft_lower_limit="${joint6_lower_limit+0.1}"
                                soft_upper_limit="${joint6_upper_limit-0.1}"/>
@@ -246,10 +231,10 @@
             <child link="link6"/>
             <origin xyz="0.05825 0 0.233" rpy="0 0 0"/>
             <axis xyz="0 0 1"/>
-            <limit lower="${joint7_lower_limit}" upper="${joint7_upper_limit}" velocity="76" effort="3"/>
-            <safety_controller k_position="5" k_velocity="2"
-                               soft_lower_limit="${joint7_lower_limit+0.30}"
-                               soft_upper_limit="${joint7_upper_limit-0.30}"/>
+            <limit lower="${joint7_lower_limit}" upper="${joint7_upper_limit}" velocity="49.0887" effort="7"/>
+            <safety_controller k_position="8" k_velocity="1"
+                               soft_lower_limit="${joint7_lower_limit+0.2}"
+                               soft_upper_limit="${joint7_upper_limit-0.2}"/>
 
         </joint>
 
@@ -319,7 +304,7 @@
                 <child link="mimic_link1"/>
                 <origin xyz="0 0 10.21375" rpy="0 0 0"/>
                 <axis xyz="0 0 1"/>
-                <limit lower="${joint1_lower_limit}" upper="${joint1_upper_limit}" velocity="2" effort="200"/>
+                <limit lower="${joint1_lower_limit}" upper="${joint1_upper_limit}" velocity="1.068" effort="180"/>
             </joint>
 
             <joint name="mimic_joint2" type="prismatic">
@@ -327,10 +312,7 @@
                 <child link="mimic_link2_1"/>
                 <origin xyz="0. 0. 30.098707" rpy="0 0 0"/>
                 <axis xyz="1 0 0"/>
-                <limit lower="${joint2_lower_limit}" upper="${joint2_upper_limit}" velocity="3" effort="300"/>
-                <safety_controller k_position="1800" k_velocity="15"
-                                   soft_lower_limit="${joint2_lower_limit+0.01}"
-                                   soft_upper_limit="${joint2_upper_limit-0.01}"/>
+                <limit lower="${joint2_lower_limit}" upper="${joint2_upper_limit}" velocity="1.9" effort="120"/>
             </joint>
 
             <joint name="mimic_joint3" type="prismatic">
@@ -338,10 +320,7 @@
                 <child link="mimic_link2_2"/>
                 <origin xyz="0.022 0. 20.034" rpy="0 0 0"/>
                 <axis xyz="1 0 0"/>
-                <limit lower="${joint3_lower_limit}" upper="${joint3_upper_limit}" velocity="2" effort="300"/>
-                <safety_controller k_position="1800" k_velocity="18"
-                                   soft_lower_limit="${joint3_lower_limit+0.008}"
-                                   soft_upper_limit="${joint3_upper_limit-0.008}"/>
+                <limit lower="${joint3_lower_limit}" upper="${joint3_upper_limit}" velocity="0.95" effort="210"/>
             </joint>
         </xacro:unless>
     </xacro:macro>
