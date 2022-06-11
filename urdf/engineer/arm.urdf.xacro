@@ -177,7 +177,7 @@
             <origin xyz="0 0 0.233" rpy="0 0 0"/>
             <axis xyz="0 0 1"/>
             <limit lower="${joint1_lower_limit}" upper="${joint1_upper_limit}" velocity="1.068" effort="230"/>
-            <safety_controller k_position="80000." k_velocity="800."
+            <safety_controller k_position="40000." k_velocity="800."
                                soft_lower_limit="${joint1_lower_limit+0.0005}"
                                soft_upper_limit="${joint1_upper_limit-0.001}"/>
         </joint>
