@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="standard3">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="standard4">
 
     <xacro:arg name="load_chassis" default="true"/>
     <xacro:arg name="load_gimbal" default="true"/>
@@ -31,7 +31,7 @@
                        rpy="1.5487827 -0.0054278 3.1332114"/>
             <xacro:if value="$(arg load_shooter)">
                 <xacro:include filename="$(find rm_description)/urdf/standard/shooter.urdf.xacro"/>
-                <xacro:include filename="$(find rm_description)/urdf/standard3/shooter.transmission.urdf.xacro"/>
+                <xacro:include filename="$(find rm_description)/urdf/standard4/shooter.transmission.urdf.xacro"/>
             </xacro:if>
         </xacro:if>
     </xacro:if>
