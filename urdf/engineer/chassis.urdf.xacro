@@ -77,7 +77,7 @@
             <child link="card"/>
             <origin xyz="0.244 0. 0.036" rpy="0 0 -1.57"/>
             <axis xyz="0 1 0"/>
-            <limit lower="-2" upper="0.6" velocity="1" effort="200"/>
+            <limit lower="-0.01" upper="0.6" velocity="1" effort="200"/>
         </joint>
 
         <joint name="drag_joint" type="revolute">
