@@ -3,9 +3,9 @@
   <xacro:include filename="$(find rm_description)/urdf/common/friction.urdf.xacro"/>
 
 
-  <xacro:property name="wheel_offset_x" value="0.0504"/>
-  <xacro:property name="wheel_offset_y" value="0.0365"/>
-  <xacro:property name="wheel_offset_z" value="0.01072"/>
+  <xacro:property name="wheel_offset_x" value="0.047"/>
+  <xacro:property name="wheel_offset_y" value="-0.0365"/>
+  <xacro:property name="wheel_offset_z" value="-0.4e-3"/>
 
 
   <xacro:friction_wheel prefixs="lower_left" connected_to="lower_pitch"
@@ -19,10 +19,10 @@
 
   <link name="lower_trigger">
     <inertial>
-      <mass value="0.25496"/>
-      <origin xyz="0.282e-3 0.011e-3 18.873e-3"/>
-      <inertia ixx="2.844e-4" ixy="-432.025e-9" ixz="-882.662e-9" iyy="2.858e-4"
-               iyz="-19.177e-9" izz="2.347e-4"/>
+      <mass value="304.224e-3"/>
+      <origin xyz="-1.589e-3 0.036e-3 -24.868e-3"/>
+      <inertia ixx="3.630e-4" ixy="282.096e-9" ixz="-1745.045e-9" iyy="2.304e-4"
+               iyz="463.877e-9" izz="4.276e-4"/>
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -31,18 +31,17 @@
       </geometry>
     </visual>
     <collision>
-      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <origin xyz="0.005 0 -0.02" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://rm_description/meshes/sentry/lower_trigger.stl" scale="0.001 0.001 0.001"/>
+        <box size="0.106 0.1 0.0663"/>
       </geometry>
     </collision>
   </link>
 
   <joint name="lower_trigger_joint" type="continuous">
-    <origin xyz="0 0.15 -0.136" rpy="0 0 0"/>
+    <origin xyz="0 148.02e-3 -29.5e-3" rpy="0 0 0"/>
     <dynamics damping="0.0" friction="0.01"/>
-    <limit effort="1.0" velocity="43.54" lower="-1e16" upper="1e16"/>
-    <parent link="lower_pitch"/>
+    <parent link="base_link"/>
     <child link="lower_trigger"/>
     <axis xyz="0 0 1 "/>
   </joint>

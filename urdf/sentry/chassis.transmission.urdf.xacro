@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <robot>
 
-
     <transmission name="trans_drive_wheel_joint">
         <type>transmission_interface/SimpleTransmission</type>
         <actuator name="drive_joint_motor">
-            <mechanicalReduction>19.2032</mechanicalReduction>
+            <mechanicalReduction>-13</mechanicalReduction>
         </actuator>
         <joint name="drive_wheel_joint">
+            <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        </joint>
+    </transmission>
+
+    <transmission name="trans_catapult_joint">
+        <type>transmission_interface/SimpleTransmission</type>
+        <actuator name="catapult_motor">
+            <mechanicalReduction>-1</mechanicalReduction>
+        </actuator>
+        <joint name="catapult_joint">
+            <offset>0.28</offset>
             <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
         </joint>
     </transmission>
