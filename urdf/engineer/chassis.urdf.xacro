@@ -85,7 +85,7 @@
             <child link="drag"/>
             <origin xyz="0.245 0 0.06" rpy="0 0 0"/>
             <axis xyz="0 1 0"/>
-            <limit lower="-0.1" upper="0.1" velocity="1" effort="200"/>
+            <limit lower="-10" upper="20" velocity="1" effort="200"/>
         </joint>
 
         <transmission name="trans_card_joint">
@@ -105,7 +105,7 @@
                 <mechanicalReduction>2</mechanicalReduction>
             </actuator>
             <joint name="drag_joint">
-                <offset>-1.5749</offset>
+                <offset>0</offset>
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
         </transmission>
