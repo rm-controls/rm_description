@@ -7,7 +7,7 @@
         <transmission name="trans_joint1">
             <type>transmission_interface/SimpleTransmission</type>
             <actuator name="joint1_motor">
-                <mechanicalReduction>883.300222</mechanicalReduction>
+                <mechanicalReduction>2341.046</mechanicalReduction>
             </actuator>
             <joint name="joint1">
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
@@ -85,7 +85,7 @@
             <transmission name="trans_mimic_joint1">
                 <type>transmission_interface/SimpleTransmission</type>
                 <actuator name="mimic_joint1_motor">
-                    <mechanicalReduction>-883.300222</mechanicalReduction>
+                    <mechanicalReduction>-2341.046</mechanicalReduction>
                 </actuator>
                 <joint name="mimic_joint1">
                     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
