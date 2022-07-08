@@ -243,8 +243,8 @@
             <axis xyz="0 1 0"/>
             <limit lower="${joint5_lower_limit}" upper="${joint5_upper_limit}" velocity="18.53" effort="13.3"/>
             <safety_controller k_position="300." k_velocity="3."
-                               soft_lower_limit="${joint5_lower_limit+0.03}"
-                               soft_upper_limit="${joint5_upper_limit-0.03}"/>
+                               soft_lower_limit="${joint5_lower_limit+0.05}"
+                               soft_upper_limit="${joint5_upper_limit-0.05}"/>
         </joint>
 
         <joint name="joint6" type="revolute">
