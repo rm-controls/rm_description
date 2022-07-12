@@ -123,10 +123,10 @@
                             x_offset="${-wheel_track/2}" y_offset="${-wheel_base/2}"
                             z_offset="${wheel_offset_z}"/>
 
-        <xacro:swerve_transmission prefix="left_front" wheel_reduction="13" pivot_offset="-1.806482"/>
-        <xacro:swerve_transmission prefix="right_front" wheel_reduction="13" pivot_offset="0.7317981"/>
-        <xacro:swerve_transmission prefix="left_back" wheel_reduction="13" pivot_offset="-2.032005516"/>
-        <xacro:swerve_transmission prefix="right_back" wheel_reduction="13" pivot_offset="0.807739452"/>
+        <xacro:swerve_transmission prefix="left_front" wheel_reduction="13" pivot_offset="4.481304"/>
+        <xacro:swerve_transmission prefix="right_front" wheel_reduction="13" pivot_offset="0.733332"/>
+        <xacro:swerve_transmission prefix="left_back" wheel_reduction="13" pivot_offset="4.25117"/>
+        <xacro:swerve_transmission prefix="right_back" wheel_reduction="13" pivot_offset="0.80697"/>
 
     </xacro:macro>
 

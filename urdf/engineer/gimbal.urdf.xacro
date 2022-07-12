@@ -3,6 +3,12 @@
     <!-- safety_distance: Minimum safety distance in [m] by which the collision volumes are expanded and which is enforced during robot motions -->
     <xacro:macro name="gimbal" params="connected_to:='' xyz:='0 0 0' rpy:='0 0 0' simulation">
 
+        <xacro:property name="threshold" value="0.03"/>
+        <xacro:property name="yaw_lower_limit" value="-4.235"/>
+        <xacro:property name="yaw_upper_limit" value="0.48"/>
+        <xacro:property name="pitch_lower_limit" value="-1.07"/>
+        <xacro:property name="pitch_upper_limit" value="0.76"/>
+
         <link name="gimbal_base">
             <inertial>
                 <mass value="0.163485"/>
@@ -68,7 +74,10 @@
             <origin xyz="0 0 0.03"
                     rpy="0 0 0"/>
             <dynamics damping="0.0" friction="0.1"/>
-            <limit effort="0.25" velocity="1000" lower="-5" upper="0"/>
+            <limit effort="1.2" velocity="13.82" lower="${yaw_lower_limit}" upper="${yaw_upper_limit}"/>
+            <safety_controller k_position="100" k_velocity="0.1"
+                               soft_lower_limit="${yaw_lower_limit+threshold}"
+                               soft_upper_limit="${yaw_upper_limit-threshold}"/>
             <parent link="gimbal_base"/>
             <child link="yaw"/>
             <axis xyz="0 0 1"/>
@@ -77,7 +86,10 @@
         <joint name="pitch_joint" type="revolute">
             <origin xyz="0.  0. 0.056 " rpy="0 0 0"/>
             <dynamics damping="0.0" friction="0.1"/>
-            <limit effort="0.045" velocity="30" lower="-1000" upper="1000"/>
+            <limit effort="1.2" velocity="13.82" lower="${pitch_lower_limit}" upper="${pitch_upper_limit}"/>
+            <safety_controller k_position="100" k_velocity="0.1"
+                               soft_lower_limit="${pitch_lower_limit+threshold}"
+                               soft_upper_limit="${pitch_upper_limit-threshold}"/>
             <parent link="yaw"/>
             <child link="pitch"/>
             <axis xyz="0 1 0 "/>
