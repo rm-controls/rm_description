@@ -39,6 +39,7 @@
                     <box size="0.43 0.0387 0.567"/>
                 </geometry>
             </collision>
+            <selfCollide>true</selfCollide>
         </link>
 
         <link name="card">

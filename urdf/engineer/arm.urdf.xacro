@@ -42,6 +42,7 @@
                           scale="0.001 0.001 0.001"/>
                 </geometry>
             </collision>
+            <selfCollide>true</selfCollide>
         </link>
 
         <link name="link2_1">
@@ -76,6 +77,7 @@
                     <box size="0.08 0.12 0.1"/>
                 </geometry>
             </collision>
+            <selfCollide>true</selfCollide>
         </link>
 
         <link name="link2_2">
@@ -98,6 +100,7 @@
                           scale="0.001 0.001 0.001"/>
                 </geometry>
             </collision>
+            <selfCollide>true</selfCollide>
         </link>
 
         <link name="link3">
@@ -120,6 +123,7 @@
                           scale="0.001 0.001 0.001"/>
                 </geometry>
             </collision>
+            <selfCollide>true</selfCollide>
         </link>
 
         <link name="link4">
@@ -136,12 +140,18 @@
                 </geometry>
             </visual>
             <collision>
-                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <origin xyz="-0.0145 0 0" rpy="0 0 0"/>
                 <geometry>
-                    <mesh filename="package://rm_description/meshes/engineer/link4_collision.stl"
-                          scale="0.001 0.001 0.001"/>
+                    <box size="0.0825 0.1015 0.078"/>
                 </geometry>
             </collision>
+            <collision>
+                <origin xyz="0. 0.0878 0" rpy="0 0 0"/>
+                <geometry>
+                    <box size="0.0495 0.071 0.0495"/>
+                </geometry>
+            </collision>
+            <selfCollide>true</selfCollide>
         </link>
 
         <link name="link5">
@@ -164,6 +174,7 @@
                           scale="0.001 0.001 0.001"/>
                 </geometry>
             </collision>
+            <selfCollide>true</selfCollide>
         </link>
 
         <link name="link6">
@@ -186,6 +197,7 @@
                           scale="0.001 0.001 0.001"/>
                 </geometry>
             </collision>
+            <selfCollide>true</selfCollide>
         </link>
 
         <joint name="joint1" type="prismatic">
@@ -198,6 +210,7 @@
             <safety_controller k_position="6000." k_velocity="200."
                                soft_lower_limit="${joint1_lower_limit+0.0001}"
                                soft_upper_limit="${joint1_upper_limit-0.0001}"/>
+            <dynamics damping="0.0" friction="0.1"/>
         </joint>
 
 
@@ -211,6 +224,7 @@
             <safety_controller k_position="50000." k_velocity="600."
                                soft_lower_limit="${joint2_lower_limit+0.003}"
                                soft_upper_limit="${joint2_upper_limit-0.003}"/>
+            <dynamics damping="0.0" friction="0.1"/>
         </joint>
 
         <joint name="joint3" type="prismatic">
@@ -223,6 +237,7 @@
             <safety_controller k_position="80000." k_velocity="1000."
                                soft_lower_limit="${joint3_lower_limit+0.001}"
                                soft_upper_limit="${joint3_upper_limit-0.001}"/>
+            <dynamics damping="0.0" friction="0.1"/>
         </joint>
 
         <joint name="joint4" type="prismatic">
@@ -234,39 +249,43 @@
             <safety_controller k_position="8000." k_velocity="400."
                                soft_lower_limit="${joint4_lower_limit+0.005}"
                                soft_upper_limit="${joint4_upper_limit-0.005}"/>
+            <dynamics damping="0.0" friction="0.1"/>
         </joint>
 
         <joint name="joint5" type="revolute">
             <parent link="link3"/>
             <child link="link4"/>
-            <origin xyz="0. 0. 0.02" rpy="0 0 0"/>
+            <origin xyz="0. 0. 0.06" rpy="0 0 0"/>
             <axis xyz="0 1 0"/>
             <limit lower="${joint5_lower_limit}" upper="${joint5_upper_limit}" velocity="18.8" effort="13.3"/>
             <safety_controller k_position="300." k_velocity="3."
                                soft_lower_limit="${joint5_lower_limit+0.05}"
                                soft_upper_limit="${joint5_upper_limit-0.05}"/>
+            <dynamics damping="0.0" friction="0.1"/>
         </joint>
 
         <joint name="joint6" type="revolute">
             <parent link="link4"/>
             <child link="link5"/>
-            <origin xyz="-0.0585 0. 0.04875" rpy="0 0 0"/>
+            <origin xyz="-0.06 0. 0." rpy="0 0 0"/>
             <axis xyz="1 0 0"/>
             <limit lower="${joint6_lower_limit}" upper="${joint6_upper_limit}" velocity="18.8" effort="13.3"/>
             <safety_controller k_position="100." k_velocity="3."
                                soft_lower_limit="${joint6_lower_limit+0.01}"
                                soft_upper_limit="${joint6_upper_limit-0.01}"/>
+            <dynamics damping="0.0" friction="0.1"/>
         </joint>
 
         <joint name="joint7" type="revolute">
             <parent link="link5"/>
             <child link="link6"/>
-            <origin xyz="0.05825 0 0.233" rpy="0 0 0"/>
+            <origin xyz="0.06 0 0.253" rpy="0 0 0"/>
             <axis xyz="0 0 1"/>
             <limit lower="${joint7_lower_limit}" upper="${joint7_upper_limit}" velocity="50" effort="5"/>
             <safety_controller k_position="50." k_velocity="0.6"
                                soft_lower_limit="${joint7_lower_limit+0.2}"
                                soft_upper_limit="${joint7_upper_limit-0.2}"/>
+            <dynamics damping="0.0" friction="0.1"/>
         </joint>
 
         <xacro:unless value="${simulation}">
