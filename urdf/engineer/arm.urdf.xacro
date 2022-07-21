@@ -200,6 +200,8 @@
             <selfCollide>true</selfCollide>
         </link>
 
+        <link name="tools_link"/>
+
         <joint name="joint1" type="prismatic">
             <parent link="${connected_to}"/>
             <child link="link1"/>
@@ -286,6 +288,12 @@
                                soft_lower_limit="${joint7_lower_limit+0.2}"
                                soft_upper_limit="${joint7_upper_limit-0.2}"/>
             <dynamics damping="0.0" friction="0.1"/>
+        </joint>
+
+        <joint name="tools_joint" type="fixed">
+            <parent link="link6"/>
+            <child link="tools_link"/>
+            <origin xyz="0.154 0 0.137" rpy="0 0 0"/>
         </joint>
 
         <xacro:unless value="${simulation}">
