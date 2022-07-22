@@ -293,7 +293,7 @@
         <joint name="tools_joint" type="fixed">
             <parent link="link6"/>
             <child link="tools_link"/>
-            <origin xyz="0.154 0 0.137" rpy="0 0 0"/>
+            <origin xyz="0.112 0 0.154" rpy="0 0 0"/>
         </joint>
 
         <xacro:unless value="${simulation}">
