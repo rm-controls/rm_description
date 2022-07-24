@@ -36,40 +36,39 @@
             <collision>
                 <origin xyz="0.175 0.247 0.275" rpy="0 0 0"/>
                 <geometry>
-                    <box size="0.061 0.042 0.4"/>
+                    <box size="0.081 0.042 0.4"/>
                 </geometry>
             </collision>
             <collision>
                 <origin xyz="-0.175 -0.247 0.275" rpy="0 0 0"/>
                 <geometry>
-                    <box size="0.061 0.042 0.4"/>
+                    <box size="0.081 0.042 0.4"/>
                 </geometry>
             </collision>
             <collision>
                 <origin xyz="0.175 -0.247 0.275" rpy="0 0 0"/>
                 <geometry>
-                    <box size="0.061 0.042 0.4"/>
+                    <box size="0.081 0.042 0.4"/>
                 </geometry>
             </collision>
             <collision>
                 <origin xyz="-0.175 0.247 0.275" rpy="0 0 0"/>
                 <geometry>
-                    <box size="0.061 0.042 0.4"/>
+                    <box size="0.081 0.042 0.4"/>
                 </geometry>
             </collision>
             <collision>
                 <origin xyz="0. -0.255 0.51" rpy="0 0 0"/>
                 <geometry>
-                    <box size="0.386 0.06 0.06"/>
+                    <box size="0.41 0.06 0.09"/>
                 </geometry>
             </collision>
             <collision>
                 <origin xyz="0. 0.255 0.51" rpy="0 0 0"/>
                 <geometry>
-                    <box size="0.386 0.06 0.06"/>
+                    <box size="0.41 0.06 0.09"/>
                 </geometry>
             </collision>
-            <selfCollide>true</selfCollide>
         </link>
 
         <link name="card">
