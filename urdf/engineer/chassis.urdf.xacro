@@ -36,25 +36,25 @@
             <collision>
                 <origin xyz="0.175 0.247 0.275" rpy="0 0 0"/>
                 <geometry>
-                    <box size="0.081 0.042 0.4"/>
+                    <box size="0.091 0.05 0.45"/>
                 </geometry>
             </collision>
             <collision>
                 <origin xyz="-0.175 -0.247 0.275" rpy="0 0 0"/>
                 <geometry>
-                    <box size="0.081 0.042 0.4"/>
+                    <box size="0.091 0.05 0.45"/>
                 </geometry>
             </collision>
             <collision>
                 <origin xyz="0.175 -0.247 0.275" rpy="0 0 0"/>
                 <geometry>
-                    <box size="0.081 0.042 0.4"/>
+                    <box size="0.091 0.05 0.45"/>
                 </geometry>
             </collision>
             <collision>
                 <origin xyz="-0.175 0.247 0.275" rpy="0 0 0"/>
                 <geometry>
-                    <box size="0.081 0.042 0.4"/>
+                    <box size="0.091 0.05 0.45"/>
                 </geometry>
             </collision>
             <collision>
