@@ -3,11 +3,11 @@
     <!-- safety_distance: Minimum safety distance in [m] by which the collision volumes are expanded and which is enforced during robot motions -->
     <xacro:macro name="gimbal" params="connected_to:='' xyz:='0 0 0' rpy:='0 0 0' simulation">
 
-        <xacro:property name="threshold" value="0.04"/>
-        <xacro:property name="yaw_lower_limit" value="-4.18"/>
-        <xacro:property name="yaw_upper_limit" value="0.88"/>
-        <xacro:property name="pitch_lower_limit" value="-0.91"/>
-        <xacro:property name="pitch_upper_limit" value="0.91"/>
+        <xacro:property name="threshold" value="0.05"/>
+        <xacro:property name="yaw_lower_limit" value="-4.3"/>
+        <xacro:property name="yaw_upper_limit" value="0.77"/>
+        <xacro:property name="pitch_lower_limit" value="-0.96"/>
+        <xacro:property name="pitch_upper_limit" value="0.87"/>
 
         <link name="gimbal_base">
             <inertial>
@@ -74,7 +74,7 @@
             <origin xyz="0 0 0.03"
                     rpy="0 0 0"/>
             <dynamics damping="0.0" friction="0.1"/>
-            <limit effort="900" velocity="0.17" lower="${yaw_lower_limit}" upper="${yaw_upper_limit}"/>
+            <limit effort="0.15" velocity="900" lower="${yaw_lower_limit}" upper="${yaw_upper_limit}"/>
             <parent link="gimbal_base"/>
             <child link="yaw"/>
             <axis xyz="0 0 1"/>
@@ -83,7 +83,7 @@
         <joint name="pitch_joint" type="revolute">
             <origin xyz="0.  0. 0.056 " rpy="0 0 0"/>
             <dynamics damping="0.0" friction="0.1"/>
-            <limit effort="900" velocity="0.17" lower="${pitch_lower_limit}" upper="${pitch_upper_limit}"/>
+            <limit effort="0.15" velocity="900" lower="${pitch_lower_limit}" upper="${pitch_upper_limit}"/>
             <parent link="yaw"/>
             <child link="pitch"/>
             <axis xyz="0 1 0 "/>
@@ -95,7 +95,7 @@
                 <mechanicalReduction>-1</mechanicalReduction>
             </actuator>
             <joint name="yaw_joint">
-                <offset>0.7524</offset>
+                <offset>0.7639</offset>
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
         </transmission>
@@ -106,7 +106,7 @@
                 <mechanicalReduction>1</mechanicalReduction>
             </actuator>
             <joint name="pitch_joint">
-                <offset>0.9019</offset>
+                <offset>0.83141</offset>
                 <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
             </joint>
         </transmission>
